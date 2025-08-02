@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { toPng } from "html-to-image";
 import { Link } from "react-router-dom";
+import Logo from './components/Logo';
 import "./App.css";
 
 function ParetoChartTool() {
@@ -54,7 +55,10 @@ function ParetoChartTool() {
   }
 
   return (
-    <div className={`container ${isDarkTheme ? 'dark-theme' : ''}`}>
+    <div className="container" style={{ maxWidth: '100%', marginTop: 40 }}>
+      <header className="header">
+        <Logo />
+      </header>
       <div className="nav-bar">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <button className="back-button" title="Back to Home">

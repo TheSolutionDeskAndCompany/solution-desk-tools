@@ -9,7 +9,7 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
+  const { signup, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,6 +29,20 @@ export default function Signup() {
     setLoading(true);
 
     const result = await signup(email, password, name);
+    
+    if (result.success) {
+      navigate('/'); // Redirect to home after successful signup
+    } else {
+      setError(result.error);
+    }
+    setLoading(false);
+  };
+
+  const handleGoogleSignIn = async () => {
+    setError('');
+    setLoading(true);
+
+    const result = await signInWithGoogle();
     
     if (result.success) {
       navigate('/'); // Redirect to home after successful signup
@@ -191,19 +205,68 @@ export default function Signup() {
             disabled={loading}
             style={{
               width: '100%',
-              background: loading ? '#ccc' : 'linear-gradient(90deg, #ff6b6b 0%, #ffa726 100%)',
-              color: 'white',
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%)',
+              color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
               border: 'none',
               padding: '14px 20px',
-              borderRadius: 8,
+              borderRadius: 999,
               fontSize: 16,
-              fontWeight: 600,
+              fontWeight: 700,
               cursor: loading ? 'not-allowed' : 'pointer',
               transition: 'all 0.2s ease',
-              boxShadow: '0 4px 12px rgba(255, 107, 107, 0.3)'
+              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-neon), 0 0 4px var(--cyber-accent)',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em'
             }}
           >
             {loading ? '🔄 Creating Account...' : '✨ Create Account'}
+          </button>
+
+          <div style={{ 
+            margin: '20px 0', 
+            textAlign: 'center', 
+            position: 'relative',
+            color: 'var(--cyber-grey)'
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              right: 0,
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, var(--cyber-accent), transparent)'
+            }}></div>
+            <span style={{
+              background: 'var(--cyber-panel)',
+              padding: '0 15px',
+              fontSize: '14px'
+            }}>OR</span>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+            style={{
+              width: '100%',
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+              color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
+              border: 'none',
+              padding: '14px 20px',
+              borderRadius: 999,
+              fontSize: 16,
+              fontWeight: 700,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-accent), 0 0 4px var(--cyber-yellow)',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em',
+              marginBottom: '20px'
+            }}
+          >
+            {loading ? '🔄 Signing up...' : '🔍 Sign up with Google'}
           </button>
         </form>
 
@@ -238,10 +301,11 @@ export default function Signup() {
         <div style={{ 
           marginTop: 20,
           padding: 15,
-          background: '#f3e5f5',
+          background: 'rgba(255, 52, 198, 0.1)',
           borderRadius: 8,
           fontSize: 14,
-          color: '#6a1b9a'
+          color: 'var(--cyber-neon)',
+          border: '1px solid rgba(255, 52, 198, 0.3)'
         }}>
           <strong>🎉 Welcome Bonus:</strong><br />
           New accounts get immediate access to our free tools with export functionality!

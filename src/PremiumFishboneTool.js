@@ -10,6 +10,9 @@ import ReactFlow, {
 } from 'reactflow';
 import { toPng } from 'html-to-image';
 import { Link } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+import PaywallModal from './components/PaywallModal';
+import Logo from './components/Logo';
 
 import 'reactflow/dist/style.css';
 
@@ -124,14 +127,14 @@ let id = 0;
 const getId = () => `cause_${id++}`;
 
 export default function PremiumFishboneTool() {
+  const { hasPaidAccess, isAuthenticated } = useAuth();
+  const [showPaywall, setShowPaywall] = useState(!hasPaidAccess);
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [selectedNode, setSelectedNode] = useState(null);
   const [nodeLabel, setNodeLabel] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // TODO: Connect to real auth
-  const [hasPaidAccess, setHasPaidAccess] = useState(false); // TODO: Connect to real payment status
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
@@ -226,8 +229,35 @@ export default function PremiumFishboneTool() {
     setNodeLabel('');
   };
 
-  // Members Only Overlay
-  if (!isAuthenticated || !hasPaidAccess) {
+  // Show paywall modal for non-premium users
+  if (showPaywall) {
+    return (
+      <>
+        <PaywallModal 
+          isOpen={showPaywall} 
+          onClose={() => setShowPaywall(false)} 
+          toolName="Fishbone Diagram" 
+        />
+        <div className="container" style={{ marginTop: 80 }}>
+          <div className="nav-bar">
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <button className="back-button" title="Back to Home">
+                ← Home
+              </button>
+            </Link>
+          </div>
+          <header className="header">
+            <Logo />
+            <h1>🐟 Fishbone Diagram Tool</h1>
+            <p>Interactive cause-and-effect analysis</p>
+          </header>
+        </div>
+      </>
+    );
+  }
+
+  // Premium tool content for paid users
+  if (!hasPaidAccess) {
     return (
       <div style={{ position: "relative", maxWidth: '100%', height: '100vh', margin: "40px auto" }}>
         <div style={{

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import Logo from './components/Logo';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -25,8 +26,25 @@ export default function Login() {
     setLoading(false);
   };
 
+  const handleGoogleSignIn = async () => {
+    setError('');
+    setLoading(true);
+
+    const result = await signInWithGoogle();
+    
+    if (result.success) {
+      navigate('/'); // Redirect to home after successful login
+    } else {
+      setError(result.error);
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="container" style={{ maxWidth: '400px', marginTop: 80 }}>
+      <header className="header">
+        <Logo />
+      </header>
       <div className="nav-bar">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <button className="back-button" title="Back to Home">
@@ -122,19 +140,68 @@ export default function Login() {
             disabled={loading}
             style={{
               width: '100%',
-              background: loading ? '#ccc' : 'linear-gradient(90deg, #7b61ff 0%, #7ae5ff 100%)',
-              color: 'white',
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%)',
+              color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
               border: 'none',
               padding: '14px 20px',
-              borderRadius: 8,
+              borderRadius: 999,
               fontSize: 16,
-              fontWeight: 600,
+              fontWeight: 700,
               cursor: loading ? 'not-allowed' : 'pointer',
               transition: 'all 0.2s ease',
-              boxShadow: '0 4px 12px rgba(123, 97, 255, 0.3)'
+              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-neon), 0 0 4px var(--cyber-accent)',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em'
             }}
           >
             {loading ? '🔄 Logging in...' : '🚀 Login'}
+          </button>
+
+          <div style={{ 
+            margin: '20px 0', 
+            textAlign: 'center', 
+            position: 'relative',
+            color: 'var(--cyber-grey)'
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              right: 0,
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, var(--cyber-accent), transparent)'
+            }}></div>
+            <span style={{
+              background: 'var(--cyber-panel)',
+              padding: '0 15px',
+              fontSize: '14px'
+            }}>OR</span>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+            style={{
+              width: '100%',
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+              color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
+              border: 'none',
+              padding: '14px 20px',
+              borderRadius: 999,
+              fontSize: 16,
+              fontWeight: 700,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-accent), 0 0 4px var(--cyber-yellow)',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em',
+              marginBottom: '20px'
+            }}
+          >
+            {loading ? '🔄 Signing in...' : '🔍 Continue with Google'}
           </button>
         </form>
 
@@ -169,14 +236,14 @@ export default function Login() {
         <div style={{ 
           marginTop: 20,
           padding: 15,
-          background: '#e3f2fd',
+          background: 'rgba(5, 217, 232, 0.1)',
           borderRadius: 8,
           fontSize: 14,
-          color: '#1565c0'
+          color: 'var(--cyber-accent)',
+          border: '1px solid rgba(5, 217, 232, 0.3)'
         }}>
-          <strong>Demo Accounts:</strong><br />
-          • Free: any email + any password<br />
-          • Premium: use "premium@test.com" + any password
+          <strong>💻 Demo Mode:</strong><br />
+          Create a real account or use Google sign-in to access all features!
         </div>
       </div>
 

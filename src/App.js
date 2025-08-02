@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { AuthProvider } from "./AuthContext";
+import Logo from "./components/Logo";
 import ParetoChartTool from "./ParetoChartTool";
 import PremiumFishboneTool from "./PremiumFishboneTool";
 import ControlChartTool from "./ControlChartTool";
@@ -22,12 +23,50 @@ function Home() {
   const { user, isAuthenticated, hasPaidAccess, logout } = useAuth();
 
   return (
-    <div className="container" style={{marginTop: 60, maxWidth: 480}}>
-      <header className="header">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-          <div>
-            <h1>The Solution Desk</h1>
-            <p className="tagline">Professional Business Process Improvement Tools</p>
+    <div className="landing-container" style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      minHeight: '100vh',
+      paddingTop: '2rem',
+      paddingBottom: '3rem',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '2rem 1rem'
+    }}>
+      <header className="header" style={{
+        width: '100%',
+        textAlign: 'center',
+        marginBottom: '3rem'
+      }}>
+        <Logo size="large" />
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          marginTop: '2rem',
+          marginBottom: '3rem',
+          flexWrap: 'wrap',
+          gap: '1rem'
+        }}>
+          <div style={{ 
+            textAlign: 'center', 
+            flex: 1,
+            minWidth: '300px'
+          }}>
+            <h1 className="glow" style={{
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              marginBottom: '1rem',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em'
+            }}>The Solution Desk</h1>
+            <p className="tagline" style={{
+              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+              color: 'var(--cyber-grey)',
+              marginBottom: '2rem',
+              lineHeight: 1.6
+            }}>Professional Business Process Improvement Tools</p>
           </div>
           <div style={{ display: 'flex', gap: 15, alignItems: 'center' }}>
             {isAuthenticated ? (
@@ -51,31 +90,39 @@ function Home() {
                 </button>
               </div>
             ) : (
-              <div style={{ display: 'flex', gap: 10 }}>
+              <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <Link to="/login" style={{ textDecoration: 'none' }}>
                   <button style={{
-                    background: 'linear-gradient(90deg, #7b61ff 0%, #7ae5ff 100%)',
-                    color: 'white',
+                    background: 'linear-gradient(90deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%)',
+                    color: 'var(--cyber-panel)',
                     border: 'none',
                     padding: '8px 16px',
-                    borderRadius: 6,
+                    borderRadius: 999,
                     fontSize: 14,
-                    fontWeight: 600,
-                    cursor: 'pointer'
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    fontFamily: 'Share Tech Mono, monospace',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.02em',
+                    boxShadow: '0 0 8px var(--cyber-neon)'
                   }}>
                     Login
                   </button>
                 </Link>
                 <Link to="/signup" style={{ textDecoration: 'none' }}>
                   <button style={{
-                    background: 'linear-gradient(90deg, #ff6b6b 0%, #ffa726 100%)',
-                    color: 'white',
+                    background: 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+                    color: 'var(--cyber-panel)',
                     border: 'none',
                     padding: '8px 16px',
-                    borderRadius: 6,
+                    borderRadius: 999,
                     fontSize: 14,
-                    fontWeight: 600,
-                    cursor: 'pointer'
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    fontFamily: 'Share Tech Mono, monospace',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.02em',
+                    boxShadow: '0 0 8px var(--cyber-accent)'
                   }}>
                     Sign Up
                   </button>
@@ -93,14 +140,46 @@ function Home() {
         </div>
       </header>
       
-      <div style={{marginBottom: 30}}>
-        <h2 style={{fontWeight: 700, fontSize: "1.8rem", margin: "20px 0 10px 0"}}>🆓 Free Tools Available Now</h2>
-        <p style={{color: "var(--muted)", fontSize: "1.1rem", lineHeight: 1.5}}>
+      <section className="free-tools-section" style={{
+        width: '100%',
+        maxWidth: '800px',
+        marginBottom: '4rem',
+        textAlign: 'center'
+      }}>
+        <h2 style={{
+          fontWeight: 700, 
+          fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', 
+          margin: '0 0 1.5rem 0',
+          fontFamily: 'Share Tech Mono, monospace',
+          color: 'var(--cyber-white)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.02em'
+        }}>🆓 Free Tools Available Now</h2>
+        <p style={{
+          color: 'var(--cyber-grey)', 
+          fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', 
+          lineHeight: 1.6,
+          marginBottom: '2rem',
+          maxWidth: '600px',
+          margin: '0 auto 2rem auto'
+        }}>
           Get started with our powerful free tools. No signup required for basic features.
         </p>
-      </div>
+      </section>
 
-      <ul style={{listStyle:"none", padding:0, marginTop:32}}>
+      <section className="tools-grid" style={{
+        width: '100%',
+        maxWidth: '900px',
+        marginBottom: '4rem'
+      }}>
+        <ul style={{
+          listStyle: 'none', 
+          padding: 0, 
+          margin: 0,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '1.5rem'
+        }}>
         <li style={{marginBottom:12}}>
           <Link to="/pareto" style={{textDecoration:"none"}}>
             <button className="tool-btn">
@@ -154,20 +233,89 @@ function Home() {
           </Link>
         </li>
       </ul>
-      <div style={{marginTop: 26}}>
-        <button className="tool-btn" style={{background:"#ffd600", color:"#232323", fontWeight:700, fontSize:"1.11em"}}>
-          Unlock All Tools
-        </button>
-        <p style={{color:"var(--muted)", fontSize:"0.98em", marginTop: 10}}>
-          Get instant access to all advanced tools.<br />
-          <Link to="/pricing" style={{color:"#ffd600"}}>View pricing</Link>
+      </section>
+
+      <section className="cta-section" style={{
+        width: '100%',
+        maxWidth: '700px',
+        textAlign: 'center',
+        marginBottom: '4rem',
+        padding: '3rem 2rem',
+        background: 'rgba(255, 52, 198, 0.1)',
+        border: '1px solid rgba(255, 52, 198, 0.3)',
+        borderRadius: '12px',
+        boxShadow: '0 0 32px rgba(255, 52, 198, 0.2)'
+      }}>
+        <h3 style={{
+          fontSize: 'clamp(1.5rem, 4vw, 2rem)', 
+          fontWeight: 700, 
+          marginBottom: '1.5rem',
+          fontFamily: 'Share Tech Mono, monospace',
+          color: 'var(--cyber-white)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.02em'
+        }}>🚀 Unlock All Premium Tools</h3>
+        <p style={{
+          color: 'var(--cyber-grey)', 
+          fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', 
+          lineHeight: 1.6, 
+          marginBottom: '2rem',
+          maxWidth: '500px',
+          margin: '0 auto 2rem auto'
+        }}>
+          Get access to advanced Fishbone Diagrams, Control Charts, Five Whys Analysis, and more.
         </p>
-      </div>
-      <div style={{marginTop: 28, fontSize: "1rem"}}>
-        <Link to="/about" style={{color:"var(--muted)"}}>About / Contact</Link>
-      </div>
-      <footer style={{marginTop:30, fontSize: "0.93rem", color: "var(--footer)"}}>
-        &copy; {new Date().getFullYear()} The Solution Desk
+        <Link to="/upgrade" style={{textDecoration: 'none'}}>
+          <button className="cta-btn" style={{
+            background: 'linear-gradient(90deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%)',
+            color: 'var(--cyber-panel)',
+            border: 'none',
+            padding: '16px 32px',
+            borderRadius: 999,
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            fontWeight: 700,
+            cursor: 'pointer',
+            fontFamily: 'Share Tech Mono, monospace',
+            textTransform: 'uppercase',
+            letterSpacing: '0.02em',
+            boxShadow: '0 0 20px var(--cyber-neon), 0 0 6px var(--cyber-accent)',
+            marginBottom: '1rem'
+          }}>
+            💎 Upgrade to Premium - $9.99/month
+          </button>
+        </Link>
+        <p style={{
+          color: 'var(--cyber-grey)', 
+          fontSize: '0.9rem', 
+          marginTop: '1rem'
+        }}>
+          Get instant access to all advanced tools.<br />
+          <Link to="/upgrade" style={{color: 'var(--cyber-yellow)'}}>View pricing options</Link>
+        </p>
+      </section>
+      
+      <footer style={{
+        width: '100%',
+        textAlign: 'center',
+        marginTop: '3rem',
+        paddingTop: '2rem',
+        borderTop: '1px solid rgba(255, 52, 198, 0.2)'
+      }}>
+        <div style={{marginBottom: '1.5rem'}}>
+          <Link to="/about" style={{
+            color: 'var(--cyber-accent)', 
+            textDecoration: 'none',
+            fontSize: '1rem',
+            fontFamily: 'Share Tech Mono, monospace'
+          }}>About / Contact</Link>
+        </div>
+        <p style={{
+          fontSize: '0.9rem', 
+          color: 'var(--cyber-grey)',
+          fontFamily: 'Share Tech Mono, monospace'
+        }}>
+          &copy; {new Date().getFullYear()} The Solution Desk - Professional Business Process Improvement
+        </p>
       </footer>
     </div>
   );

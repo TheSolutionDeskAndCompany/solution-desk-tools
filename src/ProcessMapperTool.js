@@ -10,6 +10,7 @@ import ReactFlow, {
 } from 'reactflow';
 import { toPng } from 'html-to-image';
 import { Link } from 'react-router-dom';
+import Logo from './components/Logo';
 
 import 'reactflow/dist/style.css';
 
@@ -146,6 +147,9 @@ export default function ProcessMapperTool() {
 
   return (
     <div className="container" style={{ maxWidth: '100%', height: '100vh', marginTop: 40 }}>
+      <header className="header">
+        <Logo />
+      </header>
       <div className="nav-bar">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <button className="back-button" title="Back to Home">

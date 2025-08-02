@@ -4,27 +4,32 @@ import { useAuth } from './AuthContext';
 
 export default function Upgrade() {
   const [loading, setLoading] = useState(false);
-  const { user, isAuthenticated, upgradeToPremium } = useAuth();
+  const { user, isAuthenticated, createCheckoutSession, STRIPE_CONFIG } = useAuth();
   const navigate = useNavigate();
 
-  const handleUpgrade = async () => {
+  const handleUpgrade = async (priceId) => {
+    if (!user) {
+      alert('Please log in first to upgrade your account.');
+      navigate('/login');
+      return;
+    }
+
     setLoading(true);
     
-    // Mock Stripe payment process - replace with real Stripe integration
     try {
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const result = await createCheckoutSession(priceId);
       
-      // Mock successful payment
-      upgradeToPremium();
+      if (!result.success) {
+        throw new Error(result.error);
+      }
       
-      alert('🎉 Payment successful! You now have premium access to all tools.');
-      navigate('/fishbone'); // Redirect to premium tool
+      // Stripe Checkout will redirect automatically
+      // Success handling will be done via webhook or return URL
     } catch (error) {
-      alert('Payment failed. Please try again.');
+      console.error('Checkout error:', error);
+      alert('Failed to start checkout process. Please try again.');
+      setLoading(false);
     }
-    
-    setLoading(false);
   };
 
   if (!isAuthenticated) {
@@ -39,14 +44,14 @@ export default function Upgrade() {
         </div>
 
         <div style={{
-          background: 'var(--card-bg)',
+          background: 'var(--cyber-panel)',
           padding: 40,
           borderRadius: 12,
-          boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
-          border: '1px solid var(--border)',
+          boxShadow: '0 0 32px rgba(255, 52, 198, 0.2), 0 0 8px rgba(5, 217, 232, 0.1)',
+          border: '1px solid rgba(255, 52, 198, 0.3)',
           textAlign: 'center'
         }}>
-          <h1 style={{ color: 'var(--text)', marginBottom: 20 }}>
+          <h1 style={{ color: 'var(--cyber-white)', marginBottom: 20, fontFamily: 'Share Tech Mono, monospace' }}>
             🔐 Login Required
           </h1>
           <p style={{ color: 'var(--text-secondary)', marginBottom: 30 }}>
@@ -159,26 +164,51 @@ export default function Upgrade() {
           </div>
         </div>
 
-        <button
-          onClick={handleUpgrade}
-          disabled={loading}
-          style={{
-            width: '100%',
-            background: loading ? '#ccc' : 'linear-gradient(90deg, #ff6b6b 0%, #ffa726 100%)',
-            color: 'white',
-            border: 'none',
-            padding: '16px 20px',
-            borderRadius: 8,
-            fontSize: 18,
-            fontWeight: 700,
-            cursor: loading ? 'not-allowed' : 'pointer',
-            transition: 'all 0.2s ease',
-            boxShadow: '0 4px 12px rgba(255, 107, 107, 0.3)',
-            marginBottom: 20
-          }}
-        >
-          {loading ? '🔄 Processing Payment...' : '🚀 Upgrade Now - $29/month'}
-        </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: 30 }}>
+          <button
+            onClick={() => handleUpgrade(STRIPE_CONFIG.MONTHLY_PRICE_ID)}
+            disabled={loading}
+            style={{
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%)',
+              color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
+              border: 'none',
+              padding: '18px 32px',
+              borderRadius: 999,
+              fontSize: 18,
+              fontWeight: 700,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: loading ? 'none' : '0 0 20px var(--cyber-neon), 0 0 6px var(--cyber-accent)',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em'
+            }}
+          >
+            {loading ? '🔄 Processing...' : '🚀 Monthly Plan - $9.99/month'}
+          </button>
+          
+          <button
+            onClick={() => handleUpgrade(STRIPE_CONFIG.YEARLY_PRICE_ID)}
+            disabled={loading}
+            style={{
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+              color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
+              border: 'none',
+              padding: '18px 32px',
+              borderRadius: 999,
+              fontSize: 18,
+              fontWeight: 700,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: loading ? 'none' : '0 0 20px var(--cyber-accent), 0 0 6px var(--cyber-yellow)',
+              fontFamily: 'Share Tech Mono, monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em'
+            }}
+          >
+            {loading ? '🔄 Processing...' : '💎 Yearly Plan - $99/year (Save 17%)'}
+          </button>
+        </div>
 
         <div style={{ 
           textAlign: 'center',

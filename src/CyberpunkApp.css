@@ -89,7 +89,7 @@ p {
 }
 
 /* Buttons */
-button, .btn {
+button, .btn, .tool-btn {
   background: linear-gradient(90deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%);
   color: var(--cyber-panel);
   font-weight: bold;
@@ -108,48 +108,13 @@ button, .btn {
   overflow: hidden;
 }
 
-button:hover, .btn:hover {
+button:hover, .btn:hover, .tool-btn:hover {
   filter: brightness(1.18) drop-shadow(0 0 20px var(--cyber-accent));
   box-shadow: 0 0 24px var(--cyber-accent), 0 0 12px var(--cyber-neon);
   transform: translateY(-2px);
 }
 
-button:active, .btn:active {
-  transform: translateY(0);
-}
-
-.tool-btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 20px 24px;
-  background: var(--cyber-panel);
-  border: 1px solid rgba(255, 52, 198, 0.3);
-  border-radius: 12px;
-  color: var(--cyber-white);
-  font-size: clamp(14px, 2.5vw, 18px);
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(255, 52, 198, 0.2), 0 0 4px rgba(5, 217, 232, 0.1);
-  font-family: 'Share Tech Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  min-height: 70px;
-  gap: 12px;
-}
-
-.tool-btn:hover {
-  background: rgba(255, 52, 198, 0.15);
-  border-color: var(--cyber-neon);
-  box-shadow: 0 0 20px rgba(255, 52, 198, 0.5), 0 0 12px rgba(5, 217, 232, 0.4);
-  transform: translateY(-3px) scale(1.02);
-  color: var(--cyber-accent);
-}
-
-.tool-btn:active {
+button:active, .btn:active, .tool-btn:active {
   transform: translateY(0);
 }
 
