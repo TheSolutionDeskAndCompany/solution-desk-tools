@@ -5,7 +5,7 @@ function About() {
     <div className="container" style={{marginTop: 60, maxWidth: 500}}>
       <h2>About Solution Desk</h2>
       <p>
-        <b>Solution Desk</b> is a free resource built by Amber, for anyone wanting easy access to high-quality Six Sigma tools online—no downloads, no paywalls, just results. 
+        <b>Solution Desk</b> is a growing collection of powerful business tools for teams and individuals who value their time. Most tools require membership to access.
       </p>
       <p>
         <b>Questions, ideas, or feedback?</b> <br />
