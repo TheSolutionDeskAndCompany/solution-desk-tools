@@ -13,6 +13,7 @@ const DEFAULT_CATEGORIES = [
 export default function FishboneTool() {
   const [effect, setEffect] = useState("Describe the problem here");
   const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
+  const [locked, setLocked] = useState(true); // Set to false for members
 
   // Add a cause to a category
   const addCause = idx => {
@@ -47,7 +48,48 @@ export default function FishboneTool() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: 900, marginTop: 40 }}>
+    <div style={{ position: "relative", maxWidth: 900, margin: "40px auto" }}>
+      {locked && (
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(30, 20, 60, 0.84)",
+          color: "#fff",
+          zIndex: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: 14,
+          backdropFilter: "blur(2px)",
+        }}>
+          <div style={{ fontSize: 28, fontWeight: "bold" }}>🔒 Members Only</div>
+          <div style={{ margin: "18px 0", textAlign: "center", maxWidth: 300 }}>
+            Unlock the Fishbone Diagram tool with a membership to analyze root causes effectively.
+          </div>
+          <button style={{
+            background: "linear-gradient(90deg, #8f7bee 0%, #59ccf7 100%)",
+            border: "none",
+            borderRadius: 8,
+            padding: "12px 28px",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: 16,
+            boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+            cursor: "pointer",
+            marginTop: 10,
+            transition: "transform 0.2s ease"
+          }}
+            onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
+            onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
+            onClick={() => alert("🚀 Coming soon! Join our waitlist to get early access to all premium tools.")}
+          >
+            Join Waitlist
+          </button>
+        </div>
+      )}
+
+    <div className="container" style={locked ? {filter: "blur(2.5px)", pointerEvents: "none", maxWidth: 900, marginTop: 40} : {maxWidth: 900, marginTop: 40}}>
       <div className="nav-bar">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <button className="back-button" title="Back to Home">
@@ -93,6 +135,7 @@ export default function FishboneTool() {
       <footer style={{marginTop:30, fontSize: "0.93rem", color: "var(--footer)"}}>
         &copy; {new Date().getFullYear()} The Solution Desk
       </footer>
+    </div>
     </div>
   );
 }

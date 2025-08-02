@@ -67,7 +67,8 @@ function Home() {
           <Link to="/fishbone" style={{textDecoration:"none"}}>
             <button className="tool-btn">
               <span role="img" aria-label="Fishbone">🐟</span> Fishbone Diagram
-              <span style={{marginLeft:10, fontSize:"0.8em", background:"#d1f7c4", color:"#388e3c", padding:"3px 10px", borderRadius: "1em"}}>New!</span>
+              <span style={{marginLeft:10, fontSize:"0.8em", background:"#ffebee", color:"#b71c1c", padding:"3px 10px", borderRadius: "1em"}}>Members Only</span>
+              <span role="img" aria-label="Lock" style={{marginLeft:6}}>🔒</span>
             </button>
           </Link>
         </li>
