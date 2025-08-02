@@ -1,6 +1,7 @@
 body {
   background: #f6f7fb;
   font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -10,16 +11,66 @@ body {
   border-radius: 16px;
   padding: 32px 24px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.container.dark-theme {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+body:has(.dark-theme) {
+  background: #1a1a1a;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 h1 {
   font-size: 2.2rem;
-  margin-bottom: 0.5em;
+  margin: 0;
   font-weight: 700;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 2px solid #6b6bf7;
+  color: #6b6bf7;
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  background: #6b6bf7;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.dark-theme .theme-toggle {
+  border-color: #8b8bff;
+  color: #8b8bff;
+}
+
+.dark-theme .theme-toggle:hover {
+  background: #8b8bff;
+  color: #2d2d2d;
 }
 
 label, p {
   font-size: 1.1rem;
+  text-align: center;
 }
 
 textarea {
@@ -30,10 +81,23 @@ textarea {
   padding: 12px;
   margin-bottom: 16px;
   resize: vertical;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.dark-theme textarea {
+  background: #3d3d3d;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.dark-theme textarea:focus {
+  border-color: #8b8bff;
+  outline: none;
 }
 
 button {
-  margin: 18px 0 8px 0;
+  margin: 18px auto 8px auto;
   padding: 10px 22px;
   font-size: 1rem;
   border: none;
@@ -42,9 +106,37 @@ button {
   color: #fff;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(50,50,120,0.1);
-  transition: background 0.2s;
+  transition: all 0.2s;
+  display: block;
 }
 
 button:hover {
   background: #5959d4;
+  transform: translateY(-1px);
+}
+
+.dark-theme button {
+  background: #8b8bff;
+  box-shadow: 0 2px 6px rgba(139,139,255,0.2);
+}
+
+.dark-theme button:hover {
+  background: #7a7aff;
+}
+
+/* Chart container with proper spacing for labels */
+.chart-container {
+  margin: 20px 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-theme h2 {
+  color: #e0e0e0;
+}
+
+.dark-theme p {
+  color: #b0b0b0;
 }

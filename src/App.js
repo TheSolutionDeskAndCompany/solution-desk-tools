@@ -12,6 +12,7 @@ function App() {
   ]);
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const chartRef = useRef();
 
   function handleInputChange(e) {
@@ -38,9 +39,24 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h1>Pareto Chart Generator</h1>
+    <div className={`container ${isDarkTheme ? 'dark-theme' : ''}`}>
+      <div className="header">
+        <h1>Pareto Chart Generator</h1>
+        <button 
+          className="theme-toggle"
+          onClick={() => setIsDarkTheme(!isDarkTheme)}
+          title={isDarkTheme ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {isDarkTheme ? '☀️' : '🌙'}
+        </button>
+      </div>
       <p>Paste your data (Category,Value, one per line):</p>
+      <button
+        onClick={() => setInput("A,20\nB,10\nC,8\nD,4")}
+        style={{ marginBottom: "10px", background: "#e7e7ff", color: "#444" }}
+      >
+        Fill with Example Data
+      </button>
       <textarea
         rows={5}
         placeholder="A,20\nB,10\nC,8"
@@ -48,17 +64,31 @@ function App() {
         onChange={handleInputChange}
       />
       {error && <p style={{color:"red"}}>{error}</p>}
-      <button onClick={handleDownload}>Download Chart as Image</button>
-      <h2>Pareto Chart</h2>
-      <div ref={chartRef}>
-        <BarChart width={Math.min(500, window.innerWidth - 60)} height={300} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="category" label={{ value: "Category", position: "insideBottom", dy: 15 }} />
-          <YAxis label={{ value: "Value", angle: -90, position: "insideLeft", dx: -10 }} />
-          <Tooltip />
-          <Bar dataKey="value" fill="#8884d8" />
-        </BarChart>
-      </div>
+      {data.length > 0 && (
+        <>
+          <button onClick={handleDownload}>Download Chart as Image</button>
+          <h2>Pareto Chart</h2>
+          <div className="chart-container" ref={chartRef}>
+            <BarChart 
+              width={Math.min(500, window.innerWidth - 60)} 
+              height={350} 
+              data={data}
+              margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis 
+                dataKey="category" 
+                label={{ value: "Category", position: "insideBottom", offset: -10 }} 
+              />
+              <YAxis 
+                label={{ value: "Value", angle: -90, position: "insideLeft" }} 
+              />
+              <Tooltip />
+              <Bar dataKey="value" fill={isDarkTheme ? "#8b8bff" : "#8884d8"} />
+            </BarChart>
+          </div>
+        </>
+      )}
       <p>Copy-paste CSV like:<br/>A,20<br/>B,10<br/>C,8</p>
     </div>
   );
