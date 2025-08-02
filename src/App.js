@@ -63,7 +63,7 @@ function App() {
         value={input}
         onChange={handleInputChange}
       />
-      {error && <p style={{color:"red"}}>{error}</p>}
+      {error && <p style={{color:"salmon"}}>{error}</p>}
       {data.length > 0 && (
         <>
           <button onClick={handleDownload}>Download Chart as Image</button>
@@ -84,12 +84,15 @@ function App() {
                 label={{ value: "Value", angle: -90, position: "insideLeft" }} 
               />
               <Tooltip />
-              <Bar dataKey="value" fill={isDarkTheme ? "#8b8bff" : "#8884d8"} />
+              <Bar dataKey="value" fill={isDarkTheme ? "#8b8bff" : "#8884d8"} animationDuration={800} />
             </BarChart>
           </div>
         </>
       )}
       <p>Copy-paste CSV like:<br/>A,20<br/>B,10<br/>C,8</p>
+      <footer style={{marginTop:40, textAlign:"center", opacity:0.7}}>
+        Built by Amber @ The Solution Desk
+      </footer>
     </div>
   );
 }
