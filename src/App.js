@@ -99,11 +99,7 @@ function Home() {
           Get started with our powerful free tools. No signup required for basic features.
         </p>
       </div>
-      <p style={{margin: "12px 0 22px 0", fontSize: "1.15rem", color: "var(--muted)"}}>
-        Powerful calculators and automation for businesses and teams.
-        <br />
-        <span style={{fontSize: "1rem", color: "#949494"}}>Built by Amber @ The Solution Desk</span>
-      </p>
+
       <ul style={{listStyle:"none", padding:0, marginTop:32}}>
         <li style={{marginBottom:12}}>
           <Link to="/pareto" style={{textDecoration:"none"}}>
