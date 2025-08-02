@@ -54,14 +54,11 @@ export default function Signup() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: '400px', marginTop: 80 }}>
-      <div className="nav-bar">
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <button className="back-button" title="Back to Home">
-            ← Home
-          </button>
-        </Link>
-      </div>
+    <SharedLayout
+      title="Create Your Account"
+      subtitle="Join The Solution Desk"
+      description="Start optimizing your business processes with professional improvement tools."
+    >
 
       <div style={{
         background: 'var(--card-bg)',
@@ -313,9 +310,6 @@ export default function Signup() {
         </div>
       </div>
 
-      <footer style={{ marginTop: 40, textAlign: 'center', fontSize: '0.93rem', color: 'var(--footer)' }}>
-        &copy; {new Date().getFullYear()} The Solution Desk
-      </footer>
-    </div>
+    </SharedLayout>
   );
 }
