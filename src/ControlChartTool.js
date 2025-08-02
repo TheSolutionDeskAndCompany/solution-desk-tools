@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function parseInputData(raw) {
   // Accepts comma, space, or new line separated numbers
@@ -15,6 +15,7 @@ export default function ControlChartTool() {
   const [ucl, setUCL] = useState("");
   const [lcl, setLCL] = useState("");
   const [locked, setLocked] = useState(true); // Set to false for members
+  const navigate = useNavigate();
 
   const data = parseInputData(dataRaw);
   const mean = data.length ? (data.reduce((a, b) => a + b, 0) / data.length) : 0;
@@ -54,7 +55,7 @@ export default function ControlChartTool() {
           }}
             onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
             onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
-            onClick={() => alert("🚀 Coming soon! Join our waitlist to get early access to all premium tools.")}
+            onClick={() => navigate("/waitlist")}
           >
             Join Waitlist
           </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DEFAULT_CATEGORIES = [
   { label: "People", causes: [""] },
@@ -14,6 +14,7 @@ export default function FishboneTool() {
   const [effect, setEffect] = useState("Describe the problem here");
   const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
   const [locked, setLocked] = useState(true); // Set to false for members
+  const navigate = useNavigate();
 
   // Add a cause to a category
   const addCause = idx => {
@@ -82,7 +83,7 @@ export default function FishboneTool() {
           }}
             onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
             onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
-            onClick={() => alert("🚀 Coming soon! Join our waitlist to get early access to all premium tools.")}
+            onClick={() => navigate("/waitlist")}
           >
             Join Waitlist
           </button>

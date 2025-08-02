@@ -4,6 +4,7 @@ import ParetoChartTool from "./ParetoChartTool";
 import FishboneTool from "./FishboneTool";
 import ControlChartTool from "./ControlChartTool";
 import FiveWhysTool from "./FiveWhysTool";
+import Waitlist from "./Waitlist";
 import About from "./About";
 import "./App.css";
 
@@ -126,6 +127,7 @@ function App() {
         <Route path="/fishbone" element={<FishboneTool />} />
         <Route path="/control" element={<ControlChartTool />} />
         <Route path="/5whys" element={<FiveWhysTool />} />
+        <Route path="/waitlist" element={<Waitlist />} />
         <Route path="/about" element={<About />} />
         {/* More tools/routes can go here */}
       </Routes>
