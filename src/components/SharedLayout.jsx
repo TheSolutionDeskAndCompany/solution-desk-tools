@@ -55,8 +55,7 @@ export default function SharedLayout({
         {/* Default action buttons (for homepage) */}
         {showActions && !customActions && (
           <div className="shared-actions">
-            <Link to="/login" className="btn btn-primary">Login</Link>
-            <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
+            <Link to="/auth" className="btn btn-primary">Sign In</Link>
             <Link to="/pareto" className="btn btn-outline">Free Tools</Link>
           </div>
         )}

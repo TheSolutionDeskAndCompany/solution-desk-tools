@@ -12,8 +12,7 @@ import ControlChartTool from "./ControlChartTool";
 import FiveWhysTool from "./FiveWhysTool";
 import ProcessMapTool from "./ProcessMapTool";
 import ProcessMapperTool from "./ProcessMapperTool";
-import Login from "./Login";
-import Signup from "./Signup";
+import Auth from "./Auth";
 import Upgrade from "./Upgrade";
 import Privacy from "./Privacy";
 import Terms from "./Terms";
@@ -338,8 +337,9 @@ function App() {
           <Route path="/5whys" element={<FiveWhysTool />} />
           <Route path="/process-map" element={<ProcessMapTool />} />
           <Route path="/process-mapper" element={<ProcessMapperTool />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Auth />} />
+          <Route path="/signup" element={<Auth />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />

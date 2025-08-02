@@ -48,15 +48,12 @@ export default function Login() {
     >
 
       <div style={{
-        background: 'var(--card-bg)',
-        padding: 40,
-        borderRadius: 12,
-        boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
-        border: '1px solid var(--border)'
+        background: 'transparent',
+        padding: 0,
+        width: '100%',
+        maxWidth: '400px'
       }}>
-        <h1 style={{ textAlign: 'center', marginBottom: 30, color: 'var(--text)' }}>
-          🔑 Login to Your Account
-        </h1>
+
 
         {error && (
           <div style={{
