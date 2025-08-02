@@ -41,14 +41,14 @@ function ParetoChartTool() {
 
   return (
     <div className={`container ${isDarkTheme ? 'dark-theme' : ''}`}>
+      <div className="nav-bar">
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <button className="back-button" title="Back to Home">
+            ← Home
+          </button>
+        </Link>
+      </div>
       <div className="header">
-        <div className="nav-section">
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <button className="back-button" title="Back to Home">
-              ← Home
-            </button>
-          </Link>
-        </div>
         <h1>Pareto Chart Generator</h1>
         <button 
           className="theme-toggle"
