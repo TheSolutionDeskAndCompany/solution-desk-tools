@@ -47,7 +47,22 @@ header, .navbar, .site-header {
 }
 
 .logo-img {
-  width: 150px;
+  width: 240px;
+  height: auto;
+  filter: drop-shadow(0 0 25px #00fff7) drop-shadow(0 0 45px #ff22d6) drop-shadow(0 0 8px #fff200);
+  margin-bottom: 1.5rem;
+  transition: filter 0.3s ease;
+}
+
+.logo-img:hover {
+  filter: drop-shadow(0 0 35px #00fff7) drop-shadow(0 0 60px #ff22d6) drop-shadow(0 0 12px #fff200);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
   height: auto;
   margin: 32px 0 20px 0;
   filter: drop-shadow(0 0 24px var(--cyber-neon)) drop-shadow(0 0 18px var(--cyber-accent));

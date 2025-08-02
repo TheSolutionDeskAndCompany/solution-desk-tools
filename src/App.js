@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { AuthProvider } from "./AuthContext";
 import Logo from "./components/Logo";
+import LandingPage from "./components/LandingPage";
+import SimpleLanding from "./components/SimpleLanding";
 import ParetoChartTool from "./ParetoChartTool";
 import PremiumFishboneTool from "./PremiumFishboneTool";
 import ControlChartTool from "./ControlChartTool";
@@ -326,7 +328,9 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<SimpleLanding />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/landing" element={<LandingPage />} />
           <Route path="/pareto" element={<ParetoChartTool />} />
           <Route path="/fishbone" element={<PremiumFishboneTool />} />
           <Route path="/control" element={<ControlChartTool />} />
