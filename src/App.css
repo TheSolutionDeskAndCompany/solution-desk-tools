@@ -28,6 +28,40 @@ body:has(.dark-theme) {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  position: relative;
+}
+
+.nav-section {
+  position: absolute;
+  left: 0;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid #6b6bf7;
+  color: #6b6bf7;
+  padding: 8px 16px;
+  margin: 0;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: #6b6bf7;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.dark-theme .back-button {
+  border-color: #8b8bff;
+  color: #8b8bff;
+}
+
+.dark-theme .back-button:hover {
+  background: #8b8bff;
+  color: #2d2d2d;
 }
 
 h1 {
