@@ -5,6 +5,7 @@ import FishboneTool from "./FishboneTool";
 import ControlChartTool from "./ControlChartTool";
 import FiveWhysTool from "./FiveWhysTool";
 import ProcessMapTool from "./ProcessMapTool";
+import ProcessMapperTool from "./ProcessMapperTool";
 import Waitlist from "./Waitlist";
 import About from "./About";
 import "./App.css";
@@ -101,6 +102,14 @@ function Home() {
             </button>
           </Link>
         </li>
+        <li style={{marginBottom:12}}>
+          <Link to="/process-mapper" style={{textDecoration:"none"}}>
+            <button className="tool-btn">
+              <span role="img" aria-label="Process Mapper">🔄</span> Process Mapper
+              <span style={{marginLeft:10, fontSize:"0.8em", background:"#e8f5e8", color:"#2e7d32", padding:"3px 10px", borderRadius: "1em"}}>Free</span>
+            </button>
+          </Link>
+        </li>
       </ul>
       <div style={{marginTop: 26}}>
         <button className="tool-btn" style={{background:"#ffd600", color:"#232323", fontWeight:700, fontSize:"1.11em"}}>
@@ -131,6 +140,7 @@ function App() {
         <Route path="/control" element={<ControlChartTool />} />
         <Route path="/5whys" element={<FiveWhysTool />} />
         <Route path="/process-map" element={<ProcessMapTool />} />
+        <Route path="/process-mapper" element={<ProcessMapperTool />} />
         <Route path="/waitlist" element={<Waitlist />} />
         <Route path="/about" element={<About />} />
         {/* More tools/routes can go here */}
