@@ -76,7 +76,8 @@ function Home() {
           <Link to="/control" style={{textDecoration:"none"}}>
             <button className="tool-btn">
               <span role="img" aria-label="Control Chart">📈</span> Control Charts
-              <span style={{marginLeft:10, fontSize:"0.8em", background:"#d1f7c4", color:"#388e3c", padding:"3px 10px", borderRadius: "1em"}}>New!</span>
+              <span style={{marginLeft:10, fontSize:"0.8em", background:"#ffebee", color:"#b71c1c", padding:"3px 10px", borderRadius: "1em"}}>Members Only</span>
+              <span role="img" aria-label="Lock" style={{marginLeft:6}}>🔒</span>
             </button>
           </Link>
         </li>
@@ -84,7 +85,8 @@ function Home() {
           <Link to="/5whys" style={{textDecoration:"none"}}>
             <button className="tool-btn">
               <span role="img" aria-label="5 Whys">🤔</span> 5 Why Analysis
-              <span style={{marginLeft:10, fontSize:"0.8em", background:"#d1f7c4", color:"#388e3c", padding:"3px 10px", borderRadius: "1em"}}>New!</span>
+              <span style={{marginLeft:10, fontSize:"0.8em", background:"#ffebee", color:"#b71c1c", padding:"3px 10px", borderRadius: "1em"}}>Members Only</span>
+              <span role="img" aria-label="Lock" style={{marginLeft:6}}>🔒</span>
             </button>
           </Link>
         </li>
