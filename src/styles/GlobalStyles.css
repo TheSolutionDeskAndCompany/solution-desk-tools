@@ -24,11 +24,12 @@
   /* Text Colors */
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
   --text-accent: var(--primary-teal);
   
-  /* Gradients */
-  --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  /* Background - Dark to Midnight Blue with Subtle Tech Vibe */
+  --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1a202c 70%, #0f172a 100%);
+  --circuit-pattern: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23334155" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100%25" height="100%25" fill="url(%23grid)"/></svg>');
   --gradient-card: linear-gradient(135deg, #334155 0%, #475569 100%);
   
   /* Shadows and Glows */
@@ -38,9 +39,10 @@
   --glow-primary: 0 0 20px rgba(6, 182, 212, 0.3);
   --glow-accent: 0 0 15px rgba(236, 72, 153, 0.2);
   
-  /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography - Modern, Clean Sans-Serif */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+  --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-accent: 'Orbitron', monospace; /* Only for rare accent headings */
   
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -88,60 +90,72 @@ a:visited {
 }
 
 /* Global Button Styles */
+/* Button Styles - Modern, Professional, Business-Credible */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-sm) var(--spacing-lg);
   font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: 0.875rem;
-  border-radius: var(--radius-md);
-  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none !important;
-  min-width: 120px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.025em;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
-  background: var(--primary-teal);
+  background: linear-gradient(135deg, var(--primary-teal) 0%, #0891b2 100%);
   color: white;
-  border-color: var(--primary-teal);
-  box-shadow: var(--glow-primary);
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
-  border-color: var(--primary-dark);
+  background: linear-gradient(135deg, #0891b2 0%, var(--primary-teal) 100%);
   transform: translateY(-1px);
-  box-shadow: var(--glow-primary), var(--shadow-medium);
+  box-shadow: var(--glow-hover), var(--shadow-lg);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--text-primary);
-  border-color: var(--text-secondary);
+  background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d 100%);
+  color: white;
 }
 
 .btn-secondary:hover {
-  background: var(--bg-secondary);
-  border-color: var(--primary-teal);
-  color: var(--primary-teal);
-  box-shadow: var(--glow-primary);
+  background: linear-gradient(135deg, #be185d 0%, var(--accent-pink) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.3), var(--shadow-lg);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(6, 182, 212, 0.1);
   color: var(--primary-teal);
-  border-color: var(--primary-teal);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
-  background: var(--primary-teal);
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--primary-teal);
   color: white;
   transform: translateY(-1px);
-  box-shadow: var(--glow-primary);
+  box-shadow: var(--glow-subtle), var(--shadow-card);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
 }
 
 /* Global Card Styles */

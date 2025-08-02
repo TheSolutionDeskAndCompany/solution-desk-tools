@@ -1,7 +1,8 @@
-/* Shared Layout - Consistent across all pages */
+/* Shared Layout - Modern Professional with Light Cyberpunk Tech Vibe */
 .shared-layout-root {
   min-height: 100vh;
-  background: var(--gradient-bg);
+  background: var(--gradient-bg), var(--circuit-pattern);
+  background-attachment: fixed;
   position: relative;
 }
 
@@ -42,21 +43,21 @@
   flex-direction: column;
 }
 
-/* Background watermark logo */
+/* Background watermark logo - Very subtle for professional credibility */
 .background-watermark {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 5%;
+  right: 5%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.06;
+  transform: rotate(-15deg);
 }
 
 .watermark-logo {
-  width: 600px;
+  width: 400px;
   height: auto;
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(0.3);
 }
 
 /* Hero logo - Only on homepage */
@@ -74,13 +75,13 @@
   transform: scale(1.02);
 }
 
-/* Title styling */
+/* Title styling - Modern, Professional */
 .shared-title {
-  font-family: var(--font-secondary);
-  font-weight: 700;
+  font-family: var(--font-primary);
+  font-weight: 800;
   color: var(--text-primary);
-  text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-  letter-spacing: 0.02em;
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  letter-spacing: -0.025em;
 }
 
 /* Hero title - Large for homepage */
@@ -96,12 +97,12 @@
   margin-top: var(--spacing-lg);
 }
 
-/* Subtitle styling */
+/* Subtitle styling - Clean, Professional */
 .shared-subtitle {
-  font-family: var(--font-secondary);
-  font-weight: 500;
+  font-family: var(--font-primary);
+  font-weight: 600;
   color: var(--primary-teal);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* Hero subtitle */
@@ -145,17 +146,17 @@
   margin-bottom: var(--spacing-xl);
 }
 
-/* Main content area for tools/pages */
+/* Main content area - Premium, Uncluttered Design */
 .shared-main-content {
   width: 100%;
-  max-width: 1000px;
-  margin: var(--spacing-lg) 0;
-  padding: var(--spacing-xl);
-  background: rgba(15, 23, 42, 0.6);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  max-width: 900px;
+  margin: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl);
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(6, 182, 212, 0.15);
   box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
 }
 
 /* Trust section - Optional */
