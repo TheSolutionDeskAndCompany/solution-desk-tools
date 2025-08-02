@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { toPng } from "html-to-image";
+import { Helmet } from 'react-helmet';
 import SharedLayout from './components/SharedLayout';
 import "./App.css";
 
@@ -59,6 +60,11 @@ function ParetoChartTool() {
       subtitle="Identify the Most Important Problems"
       description="Create professional Pareto charts to visualize the 80/20 rule and prioritize your improvement efforts."
     >
+      <Helmet>
+        <title>Pareto Analysis Tool – The Solution Desk</title>
+        <link rel="icon" href="/the-solution-desk-logo.png" />
+        <meta name="description" content="Create professional Pareto charts to identify the 80/20 rule in your data. Free business process improvement tool." />
+      </Helmet>
         <div className="form-group">
           <label>Enter your data (Category,Value format, one per line):</label>
           <div style={{display: "flex", gap: 10, marginBottom: 10}}>

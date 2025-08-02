@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useAuth } from './AuthContext';
 import SharedLayout from './components/SharedLayout';
 import './Auth.css';
@@ -84,6 +85,11 @@ export default function Auth() {
       title="Welcome to The Solution Desk"
       subtitle="Access your professional business improvement tools"
     >
+      <Helmet>
+        <title>Sign In – The Solution Desk</title>
+        <link rel="icon" href="/the-solution-desk-logo.png" />
+        <meta name="description" content="Sign in to access your business process improvement tools. Create an account or log in to start analyzing." />
+      </Helmet>
       <div className="auth-container">
         {/* Forms Side by Side - Always Visible */}
         <div className="auth-forms">

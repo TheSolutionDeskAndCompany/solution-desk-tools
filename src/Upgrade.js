@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useAuth } from './AuthContext';
 
 export default function Upgrade() {
@@ -94,6 +95,11 @@ export default function Upgrade() {
 
   return (
     <div className="container" style={{ maxWidth: '600px', marginTop: 80 }}>
+      <Helmet>
+        <title>Upgrade to Pro – The Solution Desk</title>
+        <link rel="icon" href="/the-solution-desk-logo.png" />
+        <meta name="description" content="Upgrade to Pro for unlimited access to all business process improvement tools and advanced features." />
+      </Helmet>
       <div className="nav-bar">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <button className="back-button" title="Back to Home">

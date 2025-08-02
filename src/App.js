@@ -6,6 +6,7 @@ import Logo from "./components/Logo";
 import LandingPage from "./components/LandingPage";
 import SimpleLanding from "./components/SimpleLanding";
 import HeroSection from "./components/HeroSection";
+import Homepage from "./components/Homepage";
 import ParetoChartTool from "./ParetoChartTool";
 import PremiumFishboneTool from "./PremiumFishboneTool";
 import ControlChartTool from "./ControlChartTool";
@@ -328,7 +329,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<HeroSection />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/pareto" element={<ParetoChartTool />} />
