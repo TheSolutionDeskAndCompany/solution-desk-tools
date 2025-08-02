@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
-import html2canvas from "html2canvas";
+import { toPng } from "html-to-image";
 import { Link } from "react-router-dom";
 import "./App.css";
 
@@ -16,6 +16,12 @@ function ParetoChartTool() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const chartRef = useRef();
 
+  function fillExampleData() {
+    const exampleData = "Defect Type A,45\nDefect Type B,23\nDefect Type C,18\nDefect Type D,12\nDefect Type E,8\nDefect Type F,4";
+    setInput(exampleData);
+    handleInputChange({ target: { value: exampleData } });
+  }
+
   function handleInputChange(e) {
     setInput(e.target.value);
     const lines = e.target.value.split("\n");
@@ -30,13 +36,21 @@ function ParetoChartTool() {
     setData(rows.map(([category, value]) => ({ category, value: Number(value) })));
   }
 
-  function handleDownload() {
-    html2canvas(chartRef.current).then((canvas) => {
-      const link = document.createElement("a");
-      link.download = "pareto-chart.png";
-      link.href = canvas.toDataURL();
+  async function handleDownload() {
+    if (!chartRef.current) return;
+    try {
+      const dataUrl = await toPng(chartRef.current, {
+        backgroundColor: '#ffffff',
+        pixelRatio: 2, // Higher quality
+      });
+      const link = document.createElement('a');
+      link.download = 'pareto-chart.png';
+      link.href = dataUrl;
       link.click();
-    });
+    } catch (err) {
+      console.error('Export failed:', err);
+      alert('Export failed! Please try again.');
+    }
   }
 
   return (
@@ -59,14 +73,27 @@ function ParetoChartTool() {
         </button>
       </div>
       <p>Paste your data (Category,Value, one per line):</p>
-      <button
-        onClick={() => setInput("A,20\nB,10\nC,8\nD,4")}
-        style={{ marginBottom: "10px", background: "#e7e7ff", color: "#444" }}
-      >
-        Fill with Example Data
-      </button>
+      <div style={{display: "flex", gap: 10, marginBottom: 10}}>
+        <button onClick={fillExampleData}
+          style={{
+            background: "#f8f9fa",
+            border: "2px solid #dee2e6",
+            borderRadius: 6,
+            padding: "8px 16px",
+            fontSize: 14,
+            cursor: "pointer",
+            color: "#495057",
+            fontWeight: 600
+          }}
+          onMouseOver={(e) => e.target.style.background = "#e9ecef"}
+          onMouseOut={(e) => e.target.style.background = "#f8f9fa"}
+        >
+          📋 Fill with Example Data
+        </button>
+      </div>
       <textarea
-        rows={5}
+        rows={6}
+        cols={50}
         placeholder="A,20\nB,10\nC,8"
         value={input}
         onChange={handleInputChange}
@@ -74,7 +101,25 @@ function ParetoChartTool() {
       {error && <p style={{color:"salmon"}}>{error}</p>}
       {data.length > 0 && (
         <>
-          <button onClick={handleDownload}>Download Chart as Image</button>
+          <button onClick={handleDownload}
+            style={{
+              background: "linear-gradient(90deg, #7b61ff 0%, #7ae5ff 100%)",
+              color: "#fff",
+              fontWeight: 700,
+              padding: "12px 24px",
+              borderRadius: 8,
+              border: "none",
+              fontSize: 16,
+              marginBottom: 16,
+              cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              transition: "transform 0.2s ease"
+            }}
+            onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
+            onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
+          >
+            📥 Export as PNG
+          </button>
           <h2>Pareto Chart</h2>
           <div className="chart-container" ref={chartRef}>
             <BarChart 
