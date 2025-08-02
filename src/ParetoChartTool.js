@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { toPng } from "html-to-image";
-import { Link } from "react-router-dom";
-import Logo from './components/Logo';
+import SharedLayout from './components/SharedLayout';
 import "./App.css";
 
 function ParetoChartTool() {
@@ -14,7 +13,7 @@ function ParetoChartTool() {
   ]);
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
   const chartRef = useRef();
 
   function fillExampleData() {
@@ -55,102 +54,86 @@ function ParetoChartTool() {
   }
 
   return (
-    <div className="container" style={{ maxWidth: '100%', marginTop: 40 }}>
-      <header className="header">
-        <Logo />
-      </header>
-      <div className="nav-bar">
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <button className="back-button" title="Back to Home">
-            ← Home
-          </button>
-        </Link>
-      </div>
-      <div className="header">
-        <h1>Pareto Chart Generator</h1>
-        <button 
-          className="theme-toggle"
-          onClick={() => setIsDarkTheme(!isDarkTheme)}
-          title={isDarkTheme ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        >
-          {isDarkTheme ? '☀️' : '🌙'}
-        </button>
-      </div>
-      <p>Paste your data (Category,Value, one per line):</p>
-      <div style={{display: "flex", gap: 10, marginBottom: 10}}>
-        <button onClick={fillExampleData}
-          style={{
-            background: "#f8f9fa",
-            border: "2px solid #dee2e6",
-            borderRadius: 6,
-            padding: "8px 16px",
-            fontSize: 14,
-            cursor: "pointer",
-            color: "#495057",
-            fontWeight: 600
-          }}
-          onMouseOver={(e) => e.target.style.background = "#e9ecef"}
-          onMouseOut={(e) => e.target.style.background = "#f8f9fa"}
-        >
-          📋 Fill with Example Data
-        </button>
-      </div>
-      <textarea
-        rows={6}
-        cols={50}
-        placeholder="A,20\nB,10\nC,8"
-        value={input}
-        onChange={handleInputChange}
-      />
-      {error && <p style={{color:"salmon"}}>{error}</p>}
-      {data.length > 0 && (
-        <>
-          <button onClick={handleDownload}
-            style={{
-              background: "linear-gradient(90deg, #7b61ff 0%, #7ae5ff 100%)",
-              color: "#fff",
-              fontWeight: 700,
-              padding: "12px 24px",
-              borderRadius: 8,
-              border: "none",
-              fontSize: 16,
-              marginBottom: 16,
-              cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-              transition: "transform 0.2s ease"
-            }}
-            onMouseOver={(e) => e.target.style.transform = "translateY(-1px)"}
-            onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
-          >
-            📥 Export as PNG
-          </button>
-          <h2>Pareto Chart</h2>
-          <div className="chart-container" ref={chartRef}>
-            <BarChart 
-              width={Math.min(500, window.innerWidth - 60)} 
-              height={350} 
-              data={data}
-              margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+    <SharedLayout
+      title="Pareto Chart Generator"
+      subtitle="Identify the Most Important Problems"
+      description="Create professional Pareto charts to visualize the 80/20 rule and prioritize your improvement efforts."
+    >
+        <div className="form-group">
+          <label>Enter your data (Category,Value format, one per line):</label>
+          <div style={{display: "flex", gap: 10, marginBottom: 10}}>
+            <button 
+              onClick={fillExampleData}
+              className="btn btn-outline"
+              style={{ fontSize: '0.9rem' }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="category" 
-                label={{ value: "Category", position: "insideBottom", offset: -10 }} 
-              />
-              <YAxis 
-                label={{ value: "Value", angle: -90, position: "insideLeft" }} 
-              />
-              <Tooltip />
-              <Bar dataKey="value" fill={isDarkTheme ? "#8b8bff" : "#8884d8"} animationDuration={800} />
-            </BarChart>
+              📋 Fill with Example Data
+            </button>
           </div>
-        </>
-      )}
-      <p>Copy-paste CSV like:<br/>A,20<br/>B,10<br/>C,8</p>
-      <footer style={{marginTop:40, textAlign:"center", opacity:0.7}}>
-        Built by Amber @ The Solution Desk
-      </footer>
-    </div>
+          <textarea
+            rows={6}
+            placeholder="Defect Type A,45\nDefect Type B,23\nDefect Type C,18\nDefect Type D,12"
+            value={input}
+            onChange={handleInputChange}
+            style={{ fontFamily: 'monospace' }}
+          />
+          {error && <p style={{color: "var(--accent-pink)", marginTop: '0.5rem'}}>{error}</p>}
+        </div>
+
+        {data.length > 0 && (
+          <>
+            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <button 
+                onClick={handleDownload}
+                className="btn btn-primary"
+                style={{ marginRight: '1rem' }}
+              >
+                📥 Export as PNG
+              </button>
+            </div>
+            
+            <h2>Your Pareto Chart</h2>
+            <div className="chart-container" ref={chartRef} style={{
+              background: 'white',
+              padding: '1rem',
+              borderRadius: 'var(--radius-md)',
+              marginBottom: '2rem'
+            }}>
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart 
+                  data={data}
+                  margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis 
+                    dataKey="category" 
+                    label={{ value: "Category", position: "insideBottom", offset: -10 }} 
+                  />
+                  <YAxis 
+                    label={{ value: "Value", angle: -90, position: "insideLeft" }} 
+                  />
+                  <Tooltip />
+                  <Bar 
+                    dataKey="value" 
+                    fill="var(--primary-teal)" 
+                    animationDuration={800} 
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            
+            <div style={{ 
+              background: 'rgba(6, 182, 212, 0.1)', 
+              padding: '1rem', 
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid rgba(6, 182, 212, 0.2)'
+            }}>
+              <h3>💡 Pareto Principle (80/20 Rule)</h3>
+              <p>Focus on the categories with the highest values - they likely represent 80% of your problems and should be prioritized for maximum impact.</p>
+            </div>
+          </>
+        )}
+    </SharedLayout>
   );
 }
 

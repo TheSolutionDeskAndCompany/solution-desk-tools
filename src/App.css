@@ -9,7 +9,7 @@
   --cyber-panel: #232946;
   --cyber-neon: #ff34c6;
   --cyber-accent: #05d9e8;
-  --cyber-yellow: #fff200;
+
   --cyber-white: #e9ecef;
   --cyber-grey: #43435c;
 }
@@ -55,7 +55,7 @@ header, .navbar, .site-header {
 }
 
 .logo-img:hover {
-  filter: drop-shadow(0 0 32px var(--cyber-neon)) drop-shadow(0 0 24px var(--cyber-accent)) drop-shadow(0 0 12px var(--cyber-yellow));
+  filter: drop-shadow(0 0 32px var(--cyber-neon)) drop-shadow(0 0 24px var(--cyber-accent)) drop-shadow(0 0 12px var(--cyber-accent));
 }
 
 /* Typography */
@@ -169,20 +169,20 @@ button:active, .btn:active {
 
 .dark-mode-toggle {
   background: var(--cyber-panel);
-  color: var(--cyber-yellow);
-  border: 2px solid var(--cyber-yellow);
+  color: var(--cyber-accent);
+  border: 2px solid var(--cyber-accent);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   padding: 0;
   font-size: 1.2rem;
-  box-shadow: 0 0 12px var(--cyber-yellow);
+  box-shadow: 0 0 12px var(--cyber-accent);
 }
 
 .dark-mode-toggle:hover {
-  background: var(--cyber-yellow);
+  background: var(--cyber-accent);
   color: var(--cyber-panel);
-  box-shadow: 0 0 20px var(--cyber-yellow);
+  box-shadow: 0 0 20px var(--cyber-accent);
 }
 
 /* Form Elements */
@@ -202,9 +202,9 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: var(--cyber-yellow);
-  box-shadow: 0 0 12px var(--cyber-yellow);
-  color: var(--cyber-yellow);
+  border-color: var(--cyber-accent);
+  box-shadow: 0 0 12px var(--cyber-accent);
+  color: var(--cyber-accent);
 }
 
 input::placeholder, textarea::placeholder {
@@ -221,9 +221,9 @@ a {
 }
 
 a:hover {
-  color: var(--cyber-yellow);
-  text-shadow: 0 0 8px var(--cyber-yellow);
-  text-decoration: underline wavy var(--cyber-yellow);
+  color: var(--cyber-accent);
+  text-shadow: 0 0 8px var(--cyber-accent);
+  text-decoration: underline wavy var(--cyber-accent);
 }
 
 /* Cards and Panels */
@@ -290,8 +290,8 @@ li {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--cyber-neon) 0%, var(--cyber-yellow) 100%);
-  box-shadow: 0 0 10px var(--cyber-yellow);
+  background: linear-gradient(180deg, var(--cyber-neon) 0%, var(--cyber-accent) 100%);
+  box-shadow: 0 0 10px var(--cyber-accent);
 }
 
 /* Responsive Design */

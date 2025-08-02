@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import Logo from './components/Logo';
+import SharedLayout from './components/SharedLayout';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -41,17 +41,11 @@ export default function Login() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: '400px', marginTop: 80 }}>
-      <header className="header">
-        <Logo />
-      </header>
-      <div className="nav-bar">
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <button className="back-button" title="Back to Home">
-            ← Home
-          </button>
-        </Link>
-      </div>
+    <SharedLayout
+      title="Welcome Back"
+      subtitle="Sign in to Your Account"
+      description="Access your professional business improvement tools and continue optimizing your processes."
+    >
 
       <div style={{
         background: 'var(--card-bg)',
@@ -185,7 +179,7 @@ export default function Login() {
             disabled={loading}
             style={{
               width: '100%',
-              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-neon) 100%)',
               color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
               border: 'none',
               padding: '14px 20px',
@@ -194,7 +188,7 @@ export default function Login() {
               fontWeight: 700,
               cursor: loading ? 'not-allowed' : 'pointer',
               transition: 'all 0.2s ease',
-              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-accent), 0 0 4px var(--cyber-yellow)',
+              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-accent), 0 0 4px var(--cyber-neon)',
               fontFamily: 'Share Tech Mono, monospace',
               textTransform: 'uppercase',
               letterSpacing: '0.02em',
@@ -247,9 +241,6 @@ export default function Login() {
         </div>
       </div>
 
-      <footer style={{ marginTop: 40, textAlign: 'center', fontSize: '0.93rem', color: 'var(--footer)' }}>
-        &copy; {new Date().getFullYear()} The Solution Desk
-      </footer>
-    </div>
+    </SharedLayout>
   );
 }

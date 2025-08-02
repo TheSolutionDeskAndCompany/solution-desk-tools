@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import SharedLayout from './components/SharedLayout';
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -250,7 +251,7 @@ export default function Signup() {
             disabled={loading}
             style={{
               width: '100%',
-              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+              background: loading ? 'var(--cyber-grey)' : 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-neon) 100%)',
               color: loading ? 'var(--cyber-white)' : 'var(--cyber-panel)',
               border: 'none',
               padding: '14px 20px',
@@ -259,7 +260,7 @@ export default function Signup() {
               fontWeight: 700,
               cursor: loading ? 'not-allowed' : 'pointer',
               transition: 'all 0.2s ease',
-              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-accent), 0 0 4px var(--cyber-yellow)',
+              boxShadow: loading ? 'none' : '0 0 16px var(--cyber-accent), 0 0 4px var(--cyber-neon)',
               fontFamily: 'Share Tech Mono, monospace',
               textTransform: 'uppercase',
               letterSpacing: '0.02em',

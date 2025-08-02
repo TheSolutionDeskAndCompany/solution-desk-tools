@@ -5,6 +5,7 @@ import { AuthProvider } from "./AuthContext";
 import Logo from "./components/Logo";
 import LandingPage from "./components/LandingPage";
 import SimpleLanding from "./components/SimpleLanding";
+import HeroSection from "./components/HeroSection";
 import ParetoChartTool from "./ParetoChartTool";
 import PremiumFishboneTool from "./PremiumFishboneTool";
 import ControlChartTool from "./ControlChartTool";
@@ -113,7 +114,7 @@ function Home() {
                 </Link>
                 <Link to="/signup" style={{ textDecoration: 'none' }}>
                   <button style={{
-                    background: 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-yellow) 100%)',
+                    background: 'linear-gradient(90deg, var(--cyber-accent) 0%, var(--cyber-neon) 100%)',
                     color: 'var(--cyber-panel)',
                     border: 'none',
                     padding: '8px 16px',
@@ -292,7 +293,7 @@ function Home() {
           marginTop: '1rem'
         }}>
           Get instant access to all advanced tools.<br />
-          <Link to="/upgrade" style={{color: 'var(--cyber-yellow)'}}>View pricing options</Link>
+          <Link to="/upgrade" style={{color: 'var(--cyber-accent)'}}>View pricing options</Link>
         </p>
       </section>
       
@@ -328,7 +329,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<SimpleLanding />} />
+          <Route path="/" element={<HeroSection />} />
           <Route path="/home" element={<Home />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/pareto" element={<ParetoChartTool />} />
