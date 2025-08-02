@@ -1,17 +1,28 @@
 body {
-  background: #f6f7fb;
-  font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(135deg, #f5f7fb 70%, #dbefff 100%);
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  transition: background 0.3s;
+}
+
+:root {
+  --muted: #636363;
+  --footer: #bdbdbd;
+  --accent: #7b61ff;
+}
+
+/* Dark mode support */
+body.dark-mode {
+  background: linear-gradient(120deg, #232323 70%, #2d3548 100%);
 }
 
 .container {
   background: #fff;
   max-width: 600px;
   margin: 40px auto 0 auto;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 32px 24px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
 
 .container.dark-theme {
@@ -136,6 +147,37 @@ textarea {
   outline: none;
 }
 
+.tool-btn {
+  background: linear-gradient(90deg, #7b61ff 60%, #7ae5ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 30px;
+  font-size: 1.13em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 12px rgba(95,100,255,0.09);
+  transition: filter 0.2s, transform 0.13s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  width: 100%;
+}
+
+.tool-btn:disabled {
+  filter: grayscale(80%);
+  background: #ececec;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.tool-btn:not(:disabled):hover {
+  filter: brightness(1.08) drop-shadow(0 0 8px #a4e1ff77);
+  transform: translateY(-2px) scale(1.03);
+}
+
 button {
   margin: 18px auto 8px auto;
   padding: 10px 22px;
@@ -179,6 +221,34 @@ button:hover {
 
 .dark-theme p {
   color: #b0b0b0;
+}
+
+body.dark-mode .container {
+  background: #1b1c1e;
+  color: #f5f6fa;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.30);
+}
+body.dark-mode .tool-btn {
+  background: linear-gradient(90deg, #a97fff 50%, #26bee9 100%);
+  color: #232323;
+}
+body.dark-mode .tool-btn:disabled {
+  background: #33333a;
+  color: #9898b0;
+}
+body.dark-mode .theme-toggle {
+  background: #f9c846 !important;
+  color: #232323 !important;
+}
+body.dark-mode a, 
+body.dark-mode .tool-btn:not(:disabled):hover {
+  color: #ffd34a;
+}
+
+body.dark-mode {
+  --muted: #9c9cae;
+  --footer: #888;
+  --accent: #a97fff;
 }
 
 /* Footer styling */
