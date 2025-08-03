@@ -4,8 +4,7 @@ import { useAuth } from "./AuthContext";
 import { AuthProvider } from "./AuthContext";
 import Logo from "./components/Logo";
 import LandingPage from "./components/LandingPage";
-import SimpleLanding from "./components/SimpleLanding";
-import HeroSection from "./components/HeroSection";
+
 import Homepage from "./components/Homepage";
 import ParetoChartTool from "./ParetoChartTool";
 import PremiumFishboneTool from "./PremiumFishboneTool";

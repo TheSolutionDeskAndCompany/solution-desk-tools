@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function FiveWhysTool() {
   const [problem, setProblem] = useState("");
   const [whys, setWhys] = useState(["", "", "", "", ""]);
-  const [locked, setLocked] = useState(true); // Set to false for members
+  const [locked] = useState(true); // Set to false for members
   const navigate = useNavigate();
 
   const handleWhyChange = (idx, value) => {

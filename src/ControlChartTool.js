@@ -14,7 +14,7 @@ export default function ControlChartTool() {
   const [dataRaw, setDataRaw] = useState("15\n18\n13\n17\n19\n16\n22\n14");
   const [ucl, setUCL] = useState("");
   const [lcl, setLCL] = useState("");
-  const [locked, setLocked] = useState(true); // Set to false for members
+  const [locked] = useState(true); // Set to false for members
   const navigate = useNavigate();
 
   const data = parseInputData(dataRaw);

@@ -9,7 +9,7 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
 import { auth, googleProvider, db } from './config/firebase';
-import stripePromise, { STRIPE_CONFIG } from './config/stripe';
+import { STRIPE_CONFIG } from './config/stripe';
 
 const AuthContext = createContext();
 
@@ -151,8 +151,6 @@ export const AuthProvider = ({ children }) => {
         throw new Error('User must be logged in to purchase');
       }
 
-      const stripe = await stripePromise;
-      
       // In a real app, you'd call your backend to create the checkout session
       // For demo purposes, we'll simulate this
       const checkoutSession = {

@@ -127,12 +127,12 @@ let id = 0;
 const getId = () => `cause_${id++}`;
 
 export default function PremiumFishboneTool() {
-  const { hasPaidAccess, isAuthenticated } = useAuth();
+  const { hasPaidAccess } = useAuth();
   const [showPaywall, setShowPaywall] = useState(!hasPaidAccess);
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [reactFlowInstance, setReactFlowInstance] = useState(null);
+  const [, setReactFlowInstance] = useState(null);
   const [selectedNode, setSelectedNode] = useState(null);
   const [nodeLabel, setNodeLabel] = useState('');
 

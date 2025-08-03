@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function ProcessMapTool() {
-  const [locked, setLocked] = useState(true); // Set to false for members
+  const [locked] = useState(true); // Set to false for members
   const navigate = useNavigate();
 
   return (

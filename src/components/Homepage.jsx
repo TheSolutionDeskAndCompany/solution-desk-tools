@@ -91,15 +91,20 @@ export default function Homepage() {
                   <span className="demo-title">Live Demo - Watch It Work</span>
                 </div>
                 <div className="demo-content">
-                  <div className="demo-video-placeholder">
-                    <div className="video-play-button">
-                      <div className="play-icon">▶</div>
+                  <Link to="/pareto" className="demo-screenshot-link">
+                    <div className="demo-screenshot">
+                      <div className="screenshot-overlay">
+                        <div className="overlay-button">
+                          <span className="button-icon">▶</span>
+                          <span className="button-text">Try Live Tool</span>
+                        </div>
+                      </div>
+                      <div className="screenshot-caption">
+                        <div className="caption-title">Real Pareto Analysis Tool</div>
+                        <div className="caption-subtitle">Click to try with your own data</div>
+                      </div>
                     </div>
-                    <div className="video-overlay">
-                      <div className="video-title">See Pareto Analysis in Action</div>
-                      <div className="video-subtitle">2-minute demo: From problem list to solution priority</div>
-                    </div>
-                  </div>
+                  </Link>
                   <div className="demo-chart">
                     <div className="chart-title">Customer Complaints by Category</div>
                     <div className="chart-bars">

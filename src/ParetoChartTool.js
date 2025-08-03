@@ -4,15 +4,20 @@ import { toPng } from "html-to-image";
 import { Helmet } from 'react-helmet';
 import SharedLayout from './components/SharedLayout';
 import "./App.css";
+import "./components/ParetoTool.css";
 
 function ParetoChartTool() {
+  // Default sample data for immediate "wow" moment
+  const sampleData = "Customer Complaints,45\nShipping Delays,23\nProduct Defects,18\nBilling Issues,12\nReturn Processing,8";
+  
   const [data, setData] = useState([
-    { category: "A", value: 20 },
-    { category: "B", value: 10 },
-    { category: "C", value: 8 },
-    { category: "D", value: 4 },
+    { category: "Customer Complaints", value: 45 },
+    { category: "Shipping Delays", value: 23 },
+    { category: "Product Defects", value: 18 },
+    { category: "Billing Issues", value: 12 },
+    { category: "Return Processing", value: 8 },
   ]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(sampleData);
   const [error, setError] = useState("");
 
   const chartRef = useRef();
@@ -56,89 +61,145 @@ function ParetoChartTool() {
 
   return (
     <SharedLayout
-      title="Pareto Chart Generator"
-      subtitle="Identify the Most Important Problems"
-      description="Create professional Pareto charts to visualize the 80/20 rule and prioritize your improvement efforts."
+      title="Pareto Analysis Tool"
+      subtitle="Find Your Team's Biggest Bottlenecks in Minutes"
+      description="Paste your process data and see your top bottlenecks instantly. No consultants needed."
     >
       <Helmet>
         <title>Pareto Analysis Tool – The Solution Desk</title>
         <link rel="icon" href="/the-solution-desk-logo.png" />
         <meta name="description" content="Create professional Pareto charts to identify the 80/20 rule in your data. Free business process improvement tool." />
       </Helmet>
-        <div className="form-group">
-          <label>Enter your data (Category,Value format, one per line):</label>
-          <div style={{display: "flex", gap: 10, marginBottom: 10}}>
-            <button 
-              onClick={fillExampleData}
-              className="btn btn-outline"
-              style={{ fontSize: '0.9rem' }}
-            >
-              📋 Fill with Example Data
-            </button>
+      
+      {/* Hero Section */}
+      <div className="pareto-hero">
+        <div className="hero-content">
+          <h1 className="hero-title">Slash Your Team's Process Bottlenecks in Minutes</h1>
+          <p className="hero-subtitle">Paste your data below and instantly see which problems are costing you the most time and money. Based on the proven 80/20 rule.</p>
+          
+          {/* How It Works Steps */}
+          <div className="how-it-works">
+            <div className="step">
+              <div className="step-number">1</div>
+              <div className="step-text">Paste or type your categories and values</div>
+            </div>
+            <div className="step">
+              <div className="step-number">2</div>
+              <div className="step-text">Click Generate to see your chart</div>
+            </div>
+            <div className="step">
+              <div className="step-number">3</div>
+              <div className="step-text">Focus on the biggest bars first</div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Input Section */}
+      <div className="input-section">
+        <div className="input-header">
+          <h2>Enter Your Process Data</h2>
+          <p>Format: Category,Value (one per line). Or try our sample data first.</p>
+        </div>
+        
+        <div className="input-controls">
+          <button 
+            onClick={fillExampleData}
+            className="btn btn-secondary sample-btn"
+          >
+            <span className="btn-icon">📋</span>
+            Try Sample Data
+          </button>
+        </div>
+        
+        <div className="textarea-container">
           <textarea
-            rows={6}
-            placeholder="Defect Type A,45\nDefect Type B,23\nDefect Type C,18\nDefect Type D,12"
+            className="data-input"
+            rows={8}
+            placeholder="Customer Complaints,45\nShipping Delays,23\nProduct Defects,18\nBilling Issues,12\nReturn Processing,8"
             value={input}
             onChange={handleInputChange}
-            style={{ fontFamily: 'monospace' }}
           />
-          {error && <p style={{color: "var(--accent-teal)", marginTop: '0.5rem'}}>{error}</p>}
+          {error && <div className="error-message">{error}</div>}
         </div>
+      </div>
 
-        {data.length > 0 && (
-          <>
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      {/* Chart Section */}
+      {data.length > 0 && (
+        <div className="chart-section">
+          <div className="chart-header">
+            <h2>Your Pareto Analysis</h2>
+            <div className="chart-actions">
               <button 
                 onClick={handleDownload}
-                className="btn btn-primary"
-                style={{ marginRight: '1rem' }}
+                className="btn btn-primary export-btn"
               >
-                📥 Export as PNG
+                <span className="btn-icon">📥</span>
+                Export PNG
               </button>
             </div>
-            
-            <h2>Your Pareto Chart</h2>
-            <div className="chart-container" ref={chartRef} style={{
-              background: 'white',
-              padding: '1rem',
-              borderRadius: 'var(--radius-md)',
-              marginBottom: '2rem'
-            }}>
-              <ResponsiveContainer width="100%" height={400}>
-                <BarChart 
-                  data={data}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis 
-                    dataKey="category" 
-                    label={{ value: "Category", position: "insideBottom", offset: -10 }} 
-                  />
-                  <YAxis 
-                    label={{ value: "Value", angle: -90, position: "insideLeft" }} 
-                  />
-                  <Tooltip />
-                  <Bar 
-                    dataKey="value" 
-                    fill="var(--primary-teal)" 
-                    animationDuration={800} 
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+          </div>
+          
+          <div className="chart-container" ref={chartRef}>
+            <ResponsiveContainer width="100%" height={450}>
+              <BarChart 
+                data={data}
+                margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
+                <XAxis 
+                  dataKey="category" 
+                  tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                  axisLine={{ stroke: '#6B7280' }}
+                />
+                <YAxis 
+                  tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                  axisLine={{ stroke: '#6B7280' }}
+                />
+                <Tooltip 
+                  contentStyle={{
+                    backgroundColor: '#1F2937',
+                    border: '1px solid #374151',
+                    borderRadius: '8px',
+                    color: '#F9FAFB'
+                  }}
+                />
+                <Bar 
+                  dataKey="value" 
+                  fill="#20C997"
+                  radius={[4, 4, 0, 0]}
+                  animationDuration={800}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          
+          {/* Results Interpretation */}
+          <div className="results-section">
+            <div className="insight-card">
+              <div className="insight-icon">🎯</div>
+              <div className="insight-content">
+                <h3>What This Means</h3>
+                <p>The tallest bars are your biggest bottlenecks. Focus on fixing these first—they'll give you 80% of your improvement with 20% of the effort.</p>
+              </div>
             </div>
             
-            <div style={{ 
-              background: 'rgba(6, 182, 212, 0.1)', 
-              padding: '1rem', 
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid rgba(6, 182, 212, 0.2)'
-            }}>
-              <h3>💡 Pareto Principle (80/20 Rule)</h3>
-              <p>Focus on the categories with the highest values - they likely represent 80% of your problems and should be prioritized for maximum impact.</p>
+            <div className="next-steps">
+              <h4>Next Steps:</h4>
+              <ul>
+                <li>Tackle the top 2-3 categories first</li>
+                <li>Measure impact after 30 days</li>
+                <li>Re-run this analysis to track progress</li>
+              </ul>
             </div>
-          </>
-        )}
+          </div>
+        </div>
+      )}
+      
+      {/* Trust Signal */}
+      <div className="trust-signal">
+        <p>No signup required • Trusted by 500+ teams • Data stays private</p>
+      </div>
     </SharedLayout>
   );
 }
