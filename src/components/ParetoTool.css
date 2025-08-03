@@ -1,85 +1,126 @@
-/* Pareto Analysis Tool Styles - Homepage Layout */
+/* Pareto Analysis Tool - Professional UI/UX Design */
 
-/* Hero Section - Full Width Like Homepage */
+/* Root Layout - Full Height Management */
+.pareto-tool-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+/* Hero Section - Balanced Spacing */
 .hero-section {
-  padding: 5rem 0;
+  padding: 3rem 0 2rem 0;
   text-align: center;
+  background: linear-gradient(135deg, rgba(32, 201, 151, 0.03) 0%, transparent 50%);
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
-  color: var(--text-primary, #FFFFFF);
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-  text-shadow: 0 0 30px rgba(26, 230, 252, 0.4);
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(32, 201, 151, 0.3);
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-  font-size: 1.375rem;
-  color: var(--text-secondary, #E2E8F0);
+  font-size: 1.125rem;
+  color: #CBD5E1;
   line-height: 1.6;
   margin: 0;
-}
-
-/* Container - Override Homepage for Wider Layout */
-.tool-section .container {
-  max-width: 1400px !important;
+  font-weight: 400;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 0 24px;
 }
 
-.hero-section .container {
-  max-width: 1400px !important;
+/* Main Container - Optimized Width and Centering */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 2rem;
+  width: 100%;
 }
 
-/* Tool Section */
+/* Tool Section - Flex Growth for Footer Positioning */
 .tool-section {
-  padding: 3rem 0;
+  flex: 1;
+  padding: 2rem 0 4rem 0;
+  display: flex;
+  align-items: flex-start;
 }
 
-/* Tool Grid - Wide Two-Column Layout */
+/* Tool Grid - Balanced Two-Column Layout */
 .tool-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Column Styling */
+/* Column Styling - Balanced Layout */
 .input-column,
 .output-column {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  padding: 0;
 }
 
-/* Section Headers */
+/* Section Headers - Improved Typography and Spacing */
 .section-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  gap: 0.5rem;
 }
 
 .section-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary, #FFFFFF);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #FFFFFF;
   margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .section-header p {
-  color: var(--text-muted, #9CA3AF);
+  color: #94A3B8;
   font-size: 0.875rem;
-  margin: 0.5rem 0 0 0;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Export Button in Header */
+.section-header .export-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  background: rgba(32, 201, 151, 0.1);
+  border: 1px solid rgba(32, 201, 151, 0.3);
+  color: #20C997;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.section-header .export-btn:hover {
+  background: rgba(32, 201, 151, 0.15);
+  border-color: #20C997;
+  transform: translateY(-1px);
 }
 
 .card-header {
@@ -99,28 +140,37 @@
   margin: 0;
 }
 
+/* Input Controls - Unified Button Styling */
 .input-controls {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .sample-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--card-background, #374151);
-  color: var(--text-secondary, #E5E7EB);
-  border: 1px solid var(--border-subtle, #4B5563);
+  padding: 0.75rem 1.25rem;
+  background: rgba(71, 85, 105, 0.5);
+  color: #E2E8F0;
+  border: 1px solid rgba(71, 85, 105, 0.8);
   border-radius: 8px;
   font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
 }
 
 .sample-btn:hover {
-  background: var(--border-subtle, #4B5563);
-  color: var(--primary-accent, #20C997);
-  border-color: var(--primary-accent, #20C997);
+  background: rgba(32, 201, 151, 0.1);
+  color: #20C997;
+  border-color: rgba(32, 201, 151, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 .input-controls {
@@ -131,29 +181,45 @@
   margin-bottom: 2rem;
 }
 
+/* Data Input - Primary Focus Element */
 .data-input {
   width: 100%;
-  min-height: 300px;
-  padding: 1.5rem;
-  background: var(--card-background, #1F2937);
-  border: 1px solid var(--border-subtle, #374151);
+  min-height: 320px;
+  padding: 1.25rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 2px solid rgba(71, 85, 105, 0.6);
   border-radius: 12px;
-  color: var(--text-primary, #F9FAFB);
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #F1F5F9;
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.6;
   resize: vertical;
-  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
 }
 
 .data-input:focus {
   outline: none;
-  border-color: var(--primary-accent, #20C997);
-  box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.1);
+  border-color: #20C997;
+  box-shadow: 0 0 0 4px rgba(32, 201, 151, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(15, 23, 42, 0.95);
 }
 
 .data-input::placeholder {
-  color: var(--text-muted, #6B7280);
+  color: #64748B;
+  font-style: italic;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #EF4444;
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+  font-weight: 500;
 }
 
 .error-message {
@@ -164,6 +230,40 @@
   background: rgba(239, 68, 68, 0.1);
   border-radius: 4px;
   border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.how-it-works {
+  background: rgba(32, 201, 151, 0.03);
+  border: 1px solid rgba(32, 201, 151, 0.15);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.how-it-works h3 {
+  color: #20C997;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.875rem 0;
+  letter-spacing: -0.01em;
+}
+
+.how-it-works ol {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #CBD5E1;
+}
+
+.how-it-works li {
+  margin-bottom: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.how-it-works li:last-child {
+  margin-bottom: 0;
 }
 
 .how-it-works-compact {
@@ -359,29 +459,135 @@
   margin: 0;
 }
 
-/* Trust Section */
-.trust-section {
-  padding: 2rem 0;
-  text-align: center;
+/* Results Insights - Enhanced Visual Hierarchy */
+.results-insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
 }
 
-.trust-signal {
-  background: rgba(32, 201, 151, 0.05);
+.insight-section,
+.next-steps-section {
+  background: rgba(32, 201, 151, 0.02);
   border: 1px solid rgba(32, 201, 151, 0.1);
-  border-radius: 8px;
-  padding: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
+  border-radius: 10px;
+  padding: 1.25rem;
+  backdrop-filter: blur(5px);
 }
 
-.trust-signal p {
-  color: var(--text-muted, #A0AEC0);
+.insight-header,
+.steps-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.insight-icon,
+.steps-icon {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.insight-header h3,
+.steps-header h3 {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.insight-section p {
+  color: #CBD5E1;
   font-size: 0.875rem;
+  line-height: 1.6;
   margin: 0;
 }
 
-/* Mobile Responsiveness */
+.next-steps-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #CBD5E1;
+}
+
+.next-steps-section li {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.next-steps-section li:last-child {
+  margin-bottom: 0;
+}
+
+/* Trust Section - Footer Positioning */
+.trust-section {
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.trust-signal {
+  background: rgba(32, 201, 151, 0.03);
+  border: 1px solid rgba(32, 201, 151, 0.1);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  backdrop-filter: blur(5px);
+}
+
+.trust-signal p {
+  color: #94A3B8;
+  font-size: 0.8125rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive Design - Comprehensive Mobile Support */
+
+/* Large Tablets and Small Desktops */
 @media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+  
+  .tool-grid {
+    gap: 2.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 0 1.5rem 0;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9375rem;
+  }
+  
+  .tool-section {
+    padding: 1.5rem 0 3rem 0;
+  }
+  
   .tool-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -389,12 +595,84 @@
   
   .results-insights {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .data-input {
+    min-height: 280px;
+    padding: 1rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .hero-section {
+    padding: 1.5rem 0 1rem 0;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .tool-section {
+    padding: 1rem 0 2rem 0;
+  }
+  
+  .tool-grid {
     gap: 1.5rem;
   }
   
-  .input-card,
-  .results-card {
-    min-width: auto;
+  .section-header {
+    margin-bottom: 1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.125rem;
+  }
+  
+  .data-input {
+    min-height: 240px;
+    padding: 0.875rem;
+    font-size: 0.8125rem;
+  }
+  
+  .chart-container {
+    padding: 1rem;
+  }
+  
+  .how-it-works,
+  .insight-section,
+  .next-steps-section {
+    padding: 1rem;
+  }
+  
+  .placeholder-content {
+    padding: 2rem 1rem;
+  }
+  
+  .placeholder-icon {
+    font-size: 2.5rem;
+  }
+  
+  .trust-section {
+    padding: 1.5rem 0;
   }
 }
 

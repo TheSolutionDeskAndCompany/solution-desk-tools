@@ -67,6 +67,8 @@ function ParetoChartTool() {
         <meta name="description" content="Create professional Pareto charts to identify the 80/20 rule in your data. Free business process improvement tool." />
       </Helmet>
       
+      <div className="pareto-tool-page">
+      
       {/* Hero Section - Full Width Like Homepage */}
       <section className="hero-section">
         <div className="container">
@@ -212,6 +214,8 @@ function ParetoChartTool() {
           </div>
         </div>
       </section>
+      
+      </div>
     </SharedLayout>
   );
 }
