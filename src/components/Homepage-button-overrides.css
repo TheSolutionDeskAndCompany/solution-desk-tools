@@ -1,0 +1,94 @@
+/* HIGH PRIORITY BUTTON OVERRIDES - REMOVE ALL PINK */
+
+/* Force professional teal buttons on homepage */
+.homepage .btn-primary,
+.hero-actions .btn-primary,
+.homepage a.btn-primary {
+  background: #20C997 !important;
+  background-image: none !important;
+  color: white !important;
+  border: 2px solid #20C997 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(32, 201, 151, 0.2) !important;
+}
+
+.homepage .btn-primary:hover,
+.hero-actions .btn-primary:hover,
+.homepage a.btn-primary:hover {
+  background: #1AB394 !important;
+  background-image: none !important;
+  border-color: #1AB394 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(32, 201, 151, 0.3) !important;
+}
+
+.homepage .btn-secondary,
+.hero-actions .btn-secondary,
+.homepage a.btn-secondary {
+  background: transparent !important;
+  background-image: none !important;
+  color: #E2E8F0 !important;
+  border: 2px solid #3A4553 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.homepage .btn-secondary:hover,
+.hero-actions .btn-secondary:hover,
+.homepage a.btn-secondary:hover {
+  background: #2A3441 !important;
+  background-image: none !important;
+  border-color: #20C997 !important;
+  color: #20C997 !important;
+  box-shadow: 0 2px 8px rgba(32, 201, 151, 0.2) !important;
+}
+
+/* Ensure no pink gradients anywhere */
+.homepage .btn,
+.homepage a.btn {
+  background-image: none !important;
+}
+
+/* Remove any pink/magenta from all buttons */
+.homepage .btn-primary,
+.homepage .btn-secondary,
+.homepage a.btn-primary,
+.homepage a.btn-secondary {
+  background-color: inherit !important;
+  border-image: none !important;
+}
+
+/* Force teal accent for all interactive elements */
+.homepage .btn:focus,
+.homepage a.btn:focus {
+  outline: 2px solid #20C997 !important;
+  outline-offset: 2px !important;
+}
+
+/* PRICING TOGGLE SWITCH - FORCE PROFESSIONAL TEAL */
+.homepage .toggle-switch,
+.pricing-cta-section .toggle-switch {
+  background: #3A4553 !important;
+  background-image: none !important;
+  border: none !important;
+}
+
+.homepage .toggle-switch.active,
+.pricing-cta-section .toggle-switch.active,
+.homepage .toggle-switch:hover,
+.pricing-cta-section .toggle-switch:hover {
+  background: #20C997 !important;
+  background-image: none !important;
+}
+
+.homepage .toggle-slider,
+.pricing-cta-section .toggle-slider {
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Remove any pink/purple from toggle elements */
+.homepage .pricing-toggle *,
+.pricing-cta-section .pricing-toggle * {
+  background-image: none !important;
+}

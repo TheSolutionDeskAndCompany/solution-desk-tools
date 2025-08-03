@@ -10,10 +10,10 @@
   --primary-dark: #0284c7;
   --primary-light: #38bdf8;
   
-  /* Secondary Colors - Pink (Subtle Accents Only) */
-  --accent-pink: #ec4899;
-  --accent-pink-light: #f472b6;
-  --accent-pink-subtle: rgba(236, 72, 153, 0.1);
+  /* Professional Accent Colors - Teal Only */
+  --accent-teal: #20C997;
+  --accent-teal-light: #38D9A9;
+  --accent-teal-subtle: rgba(32, 201, 151, 0.1);
   
   /* Neutral Colors */
   --bg-primary: #0f172a;
@@ -127,14 +127,14 @@ a:visited {
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d 100%);
+  background: linear-gradient(135deg, var(--accent-teal) 0%, #1AB394 100%);
   color: white;
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(135deg, #be185d 0%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, #1AB394 0%, var(--accent-teal) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 0 15px rgba(236, 72, 153, 0.3), var(--shadow-lg);
+  box-shadow: 0 0 15px rgba(32, 201, 151, 0.3), var(--shadow-lg);
 }
 
 .btn-secondary:active {

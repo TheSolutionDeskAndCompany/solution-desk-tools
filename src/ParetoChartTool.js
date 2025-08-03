@@ -83,7 +83,7 @@ function ParetoChartTool() {
             onChange={handleInputChange}
             style={{ fontFamily: 'monospace' }}
           />
-          {error && <p style={{color: "var(--accent-pink)", marginTop: '0.5rem'}}>{error}</p>}
+          {error && <p style={{color: "var(--accent-teal)", marginTop: '0.5rem'}}>{error}</p>}
         </div>
 
         {data.length > 0 && (

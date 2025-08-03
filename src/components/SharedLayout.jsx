@@ -41,7 +41,7 @@ export default function SharedLayout({
           />
         )}
         
-        {/* Title - Bold with neon pink glow */}
+        {/* Title - Bold with professional teal accent */}
         <h1 className={`shared-title ${isHeroMode ? 'hero-title' : 'page-title'}`}>{title}</h1>
         
         {/* Subtitle - Consistent styling */}

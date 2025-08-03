@@ -106,7 +106,7 @@ const initialNodes = [
     style: { 
       background: '#fd79a8', 
       color: 'white', 
-      border: '2px solid #e91e63',
+      border: '2px solid #20C997',
       borderRadius: '8px',
       fontWeight: 'bold'
     },
