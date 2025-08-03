@@ -1,34 +1,41 @@
-/* Pareto Tool - Professional SaaS Styling */
+/* Pareto Analysis Tool Styles */
 
-/* Page Header */
-.page-header {
+/* Hero Section - Match Homepage Style */
+.hero-section {
   text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem 0;
+  padding: 4rem 0 5rem 0;
+  margin-bottom: 2rem;
 }
 
-.page-title {
-  font-size: 2.5rem;
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
   font-weight: 700;
   color: #F9FAFB;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 0 0 30px rgba(26, 230, 252, 0.4);
 }
 
-.page-subtitle {
-  font-size: 1.125rem;
-  color: #9CA3AF;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.5;
+.hero-subtitle {
+  font-size: 1.375rem;
+  color: #D1D5DB;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* Two-Column Layout */
-.tool-layout {
+/* Main Tool Grid - Wide Layout */
+.tool-main-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto 4rem auto;
+  padding: 0 2rem;
   min-height: 600px;
 }
 
@@ -146,18 +153,18 @@
   margin-bottom: 0.5rem;
 }
 
-/* Right Column - Output */
+/* Right Column - Single Results Card */
 .output-column {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
-.chart-card {
+.results-card {
   background: #1F2937;
   border: 1px solid #374151;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem;
+  height: fit-content;
 }
 
 .chart-header {
@@ -188,20 +195,17 @@
   padding: 1rem;
 }
 
-/* Results Grid */
-.results-grid {
+/* Results Insights - Within Single Card */
+.results-insights {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #374151;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-.insight-card,
-.next-steps-card {
-  background: #1F2937;
-  border: 1px solid #374151;
-  border-radius: 8px;
-  padding: 1.5rem;
-}
+/* insight-section and next-steps-section inherit styling from parent card */
 
 .insight-header,
 .steps-header {
@@ -215,43 +219,45 @@
 .steps-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
+  color: #20C997;
 }
 
 .insight-header h3,
 .steps-header h3 {
   color: #F9FAFB;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
 }
 
-.insight-card p {
+.insight-section p {
   color: #D1D5DB;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   margin: 0;
 }
 
-.next-steps-card ul {
+.next-steps-section ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.next-steps-card li {
+.next-steps-section li {
   color: #D1D5DB;
-  font-size: 0.875rem;
-  padding: 0.5rem 0;
+  font-size: 1rem;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #374151;
   position: relative;
   padding-left: 1.5rem;
+  line-height: 1.5;
 }
 
-.next-steps-card li:last-child {
+.next-steps-section li:last-child {
   border-bottom: none;
 }
 
-.next-steps-card li::before {
+.next-steps-section li::before {
   content: '→';
   color: #20C997;
   position: absolute;
@@ -314,27 +320,33 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
-  .tool-layout {
+  .tool-main-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
+    padding: 0 1rem;
   }
   
-  .results-grid {
+  .results-insights {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
+  .hero-title {
+    font-size: 2.5rem;
   }
   
-  .page-subtitle {
-    font-size: 1rem;
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .hero-section {
+    padding: 3rem 0 4rem 0;
   }
   
   .input-card,
-  .chart-card {
+  .results-card {
     padding: 1.5rem;
   }
   
@@ -355,5 +367,10 @@
   
   .placeholder-card {
     padding: 2rem 1rem;
+  }
+  
+  .results-insights {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
   }
 }

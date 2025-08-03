@@ -60,25 +60,25 @@ function ParetoChartTool() {
   }
 
   return (
-    <SharedLayout
-      title="Pareto Analysis Tool"
-      subtitle="Find Your Team's Biggest Bottlenecks in Minutes"
-      description="Paste your process data and see your top bottlenecks instantly. No consultants needed."
-    >
+    <SharedLayout>
       <Helmet>
         <title>Pareto Analysis Tool – The Solution Desk</title>
         <link rel="icon" href="/the-solution-desk-logo.png" />
         <meta name="description" content="Create professional Pareto charts to identify the 80/20 rule in your data. Free business process improvement tool." />
       </Helmet>
       
-      {/* Page Header */}
-      <div className="page-header">
-        <h1 className="page-title">Pareto Analysis Tool</h1>
-        <p className="page-subtitle">Find your team's biggest bottlenecks in minutes. Paste your data and see which problems cost you the most time and money.</p>
+      {/* Hero Section - Match Homepage Style */}
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">Slash Your Team's Process Bottlenecks in Minutes</h1>
+          <p className="hero-subtitle">
+            Paste your process data and see your top bottlenecks instantly. Focus on what matters most—no consultants needed.
+          </p>
+        </div>
       </div>
 
-      {/* Two-Column Layout */}
-      <div className="tool-layout">
+      {/* Main Tool Layout - Wide Two-Column Grid */}
+      <div className="tool-main-grid">
         {/* Left Column - Input */}
         <div className="input-column">
           <div className="input-card">
@@ -120,61 +120,59 @@ function ParetoChartTool() {
           </div>
         </div>
 
-        {/* Right Column - Output */}
+        {/* Right Column - Single Results Card */}
         <div className="output-column">
           {data.length > 0 ? (
-            <>
-              {/* Chart Card */}
-              <div className="chart-card">
-                <div className="chart-header">
-                  <h2>Your Pareto Analysis</h2>
-                  <button 
-                    onClick={handleDownload}
-                    className="btn btn-primary export-btn"
-                  >
-                    <span className="btn-icon">📥</span>
-                    Export PNG
-                  </button>
-                </div>
-                
-                <div className="chart-container" ref={chartRef}>
-                  <ResponsiveContainer width="100%" height={400}>
-                    <BarChart 
-                      data={data}
-                      margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
-                      <XAxis 
-                        dataKey="category" 
-                        tick={{ fill: '#9CA3AF', fontSize: 12 }}
-                        axisLine={{ stroke: '#6B7280' }}
-                      />
-                      <YAxis 
-                        tick={{ fill: '#9CA3AF', fontSize: 12 }}
-                        axisLine={{ stroke: '#6B7280' }}
-                      />
-                      <Tooltip 
-                        contentStyle={{
-                          backgroundColor: '#1F2937',
-                          border: '1px solid #374151',
-                          borderRadius: '8px',
-                          color: '#F9FAFB'
-                        }}
-                      />
-                      <Bar 
-                        dataKey="value" 
-                        fill="#20C997"
-                        radius={[4, 4, 0, 0]}
-                        animationDuration={800}
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
+            <div className="results-card">
+              {/* Chart Section */}
+              <div className="chart-header">
+                <h2>Your Pareto Analysis</h2>
+                <button 
+                  onClick={handleDownload}
+                  className="btn btn-primary export-btn"
+                >
+                  <span className="btn-icon">📥</span>
+                  Export PNG
+                </button>
               </div>
               
-              {/* Results Cards */}
-              <div className="results-grid">
-                <div className="insight-card">
+              <div className="chart-container" ref={chartRef}>
+                <ResponsiveContainer width="100%" height={400}>
+                  <BarChart 
+                    data={data}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
+                    <XAxis 
+                      dataKey="category" 
+                      tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                      axisLine={{ stroke: '#6B7280' }}
+                    />
+                    <YAxis 
+                      tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                      axisLine={{ stroke: '#6B7280' }}
+                    />
+                    <Tooltip 
+                      contentStyle={{
+                        backgroundColor: '#1F2937',
+                        border: '1px solid #374151',
+                        borderRadius: '8px',
+                        color: '#F9FAFB'
+                      }}
+                    />
+                    <Bar 
+                      dataKey="value" 
+                      fill="#20C997"
+                      radius={[4, 4, 0, 0]}
+                      animationDuration={800}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              
+              {/* Insights Section - Within Same Card */}
+              <div className="results-insights">
+                <div className="insight-section">
                   <div className="insight-header">
                     <div className="insight-icon">🎯</div>
                     <h3>What This Means</h3>
@@ -182,7 +180,7 @@ function ParetoChartTool() {
                   <p>The tallest bars are your biggest bottlenecks. Focus on fixing these first—they'll give you 80% of your improvement with 20% of the effort.</p>
                 </div>
                 
-                <div className="next-steps-card">
+                <div className="next-steps-section">
                   <div className="steps-header">
                     <div className="steps-icon">✅</div>
                     <h3>Next Steps</h3>
@@ -194,7 +192,7 @@ function ParetoChartTool() {
                   </ul>
                 </div>
               </div>
-            </>
+            </div>
           ) : (
             <div className="placeholder-card">
               <div className="placeholder-content">
