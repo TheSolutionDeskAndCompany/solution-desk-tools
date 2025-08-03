@@ -45,17 +45,17 @@ export default function EmailCapturePopup() {
     e.preventDefault();
     if (email) {
       try {
-        // Send to a simple email collection service (you can replace this with your preferred service)
-        const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        // Use Netlify Forms for email capture
+        const formData = new FormData();
+        formData.append('form-name', 'email-capture');
+        formData.append('email', email);
+        formData.append('source', 'Process Improvement Cheatsheet Request');
+        formData.append('timestamp', new Date().toISOString());
+        
+        const response = await fetch('/', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: email,
-            source: 'Process Improvement Cheatsheet Request',
-            timestamp: new Date().toISOString()
-          })
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
         });
         
         if (response.ok) {

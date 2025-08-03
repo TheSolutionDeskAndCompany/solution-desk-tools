@@ -29,7 +29,7 @@
 
 /* Container - Match Homepage */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -43,7 +43,7 @@
 .tool-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 4rem;
   align-items: start;
 }
 
@@ -57,9 +57,9 @@
   background: var(--card-background, #2A3441);
   border: 1px solid var(--border-subtle, #3A4553);
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 3rem;
   height: fit-content;
-  min-width: 400px;
+  min-width: 500px;
 }
 
 .card-header {
@@ -172,9 +172,9 @@
   background: var(--card-background, #2A3441);
   border: 1px solid var(--border-subtle, #3A4553);
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 3rem;
   height: fit-content;
-  min-width: 400px;
+  min-width: 500px;
 }
 
 .chart-header {

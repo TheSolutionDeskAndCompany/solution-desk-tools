@@ -402,6 +402,13 @@ export default function Homepage() {
         </div>
       </footer>
       
+      {/* Hidden form for Netlify Forms */}
+      <form name="email-capture" netlify="true" hidden>
+        <input type="email" name="email" />
+        <input type="text" name="source" />
+        <input type="text" name="timestamp" />
+      </form>
+      
       {/* Email Capture Popup */}
       <EmailCapturePopup />
     </div>
