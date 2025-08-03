@@ -1,10 +1,9 @@
-/* Pareto Analysis Tool Styles */
+/* Pareto Analysis Tool Styles - Homepage Layout */
 
-/* Hero Section - Match Homepage Style */
+/* Hero Section - Full Width Like Homepage */
 .hero-section {
+  padding: 5rem 0;
   text-align: center;
-  padding: 4rem 0 5rem 0;
-  margin-bottom: 2rem;
 }
 
 .hero-content {
@@ -15,7 +14,7 @@
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #F9FAFB;
+  color: var(--text-primary, #FFFFFF);
   margin-bottom: 1.5rem;
   line-height: 1.1;
   text-shadow: 0 0 30px rgba(26, 230, 252, 0.4);
@@ -23,20 +22,29 @@
 
 .hero-subtitle {
   font-size: 1.375rem;
-  color: #D1D5DB;
+  color: var(--text-secondary, #E2E8F0);
   line-height: 1.6;
   margin: 0;
 }
 
-/* Main Tool Grid - Wide Layout */
-.tool-main-grid {
+/* Container - Match Homepage */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Tool Section */
+.tool-section {
+  padding: 3rem 0;
+}
+
+/* Tool Grid - Wide Two-Column Layout */
+.tool-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1400px;
-  margin: 0 auto 4rem auto;
-  padding: 0 2rem;
-  min-height: 600px;
+  gap: 3rem;
+  align-items: start;
 }
 
 /* Left Column - Input */
@@ -46,11 +54,12 @@
 }
 
 .input-card {
-  background: #1F2937;
-  border: 1px solid #374151;
+  background: var(--card-background, #2A3441);
+  border: 1px solid var(--border-subtle, #3A4553);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem;
   height: fit-content;
+  min-width: 400px;
 }
 
 .card-header {
@@ -160,11 +169,12 @@
 }
 
 .results-card {
-  background: #1F2937;
-  border: 1px solid #374151;
+  background: var(--card-background, #2A3441);
+  border: 1px solid var(--border-subtle, #3A4553);
   border-radius: 12px;
   padding: 2.5rem;
   height: fit-content;
+  min-width: 400px;
 }
 
 .chart-header {
@@ -318,17 +328,42 @@
   margin: 0;
 }
 
+/* Trust Section */
+.trust-section {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.trust-signal {
+  background: rgba(32, 201, 151, 0.05);
+  border: 1px solid rgba(32, 201, 151, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.trust-signal p {
+  color: var(--text-muted, #A0AEC0);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
-  .tool-main-grid {
+  .tool-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 0 1rem;
+    gap: 2rem;
   }
   
   .results-insights {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .input-card,
+  .results-card {
+    min-width: auto;
   }
 }
 
@@ -342,7 +377,15 @@
   }
   
   .hero-section {
-    padding: 3rem 0 4rem 0;
+    padding: 3rem 0;
+  }
+  
+  .tool-section {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 16px;
   }
   
   .input-card,
