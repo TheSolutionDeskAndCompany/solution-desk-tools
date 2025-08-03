@@ -8,7 +8,7 @@ import "./Homepage-button-overrides.css";
 
 export default function Homepage() {
   const [showStickyBar, setShowStickyBar] = useState(false);
-  const [isYearly, setIsYearly] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,10 +70,10 @@ export default function Homepage() {
               
               <div className="hero-actions">
                 <Link to="/auth" className="btn btn-primary btn-large">
-                  Try Free Tool
+                  Start Free Trial
                 </Link>
                 <Link to="/pareto" className="btn btn-secondary btn-large">
-                  Try It Now
+                  Try Sample Tool
                 </Link>
               </div>
               
@@ -283,19 +283,7 @@ export default function Homepage() {
             <h2 className="section-title">Simple, Transparent Pricing</h2>
             <p className="pricing-subtitle">Start free, upgrade when you need more power</p>
             
-            <div className="pricing-toggle">
-              <span className={!isYearly ? 'active' : ''}>Monthly</span>
-              <button 
-                className={`toggle-switch ${isYearly ? 'active' : ''}`}
-                onClick={() => setIsYearly(!isYearly)}
-                aria-label="Toggle pricing period"
-              >
-                <div className={`toggle-slider ${isYearly ? 'yearly' : 'monthly'}`}></div>
-              </button>
-              <span className={isYearly ? 'active' : ''}>
-                Yearly <span className="savings-badge">Save 2 months</span>
-              </span>
-            </div>
+
           </div>
           
           <div className="pricing-table">
@@ -321,14 +309,12 @@ export default function Homepage() {
               <Link to="/auth" className="btn btn-primary btn-full">Start Free</Link>
             </div>
             
-            <div className="pricing-card pro-plan featured">
-              <div className="plan-badge">Most Popular</div>
+            <div className="pricing-card pro-plan">
               <div className="plan-header">
-                <h3 className="plan-name">Pro</h3>
+                <h3 className="plan-name">Pro Monthly</h3>
                 <div className="plan-price">
-                  <span className="price-amount">${isYearly ? '24' : '29'}</span>
-                  <span className="price-period">/{isYearly ? 'month' : 'month'}</span>
-                  {isYearly && <span className="price-note">billed annually</span>}
+                  <span className="price-amount">$29</span>
+                  <span className="price-period">/month</span>
                 </div>
                 <p className="plan-description">Unlock workflow automation & advanced features</p>
               </div>
@@ -342,7 +328,31 @@ export default function Homepage() {
                 <li className="feature-included">✓ Priority support</li>
                 <li className="feature-included">✓ Team collaboration</li>
               </ul>
-              <Link to="/upgrade" className="btn btn-primary btn-full">Start Pro Trial</Link>
+              <Link to="/upgrade" className="btn btn-primary btn-full">Start Monthly</Link>
+            </div>
+            
+            <div className="pricing-card pro-plan featured">
+              <div className="plan-badge">Best Value</div>
+              <div className="plan-header">
+                <h3 className="plan-name">Pro Yearly</h3>
+                <div className="plan-price">
+                  <span className="price-amount">$24</span>
+                  <span className="price-period">/month</span>
+                  <span className="price-note">billed annually</span>
+                </div>
+                <p className="plan-description">Save 2 months with annual billing</p>
+              </div>
+              <ul className="plan-features">
+                <li className="feature-included">✓ Everything in Free</li>
+                <li className="feature-included">✓ Root Cause Analysis</li>
+                <li className="feature-included">✓ Process Mapping</li>
+                <li className="feature-included">✓ Advanced visualizations</li>
+                <li className="feature-included">✓ Unlimited analyses</li>
+                <li className="feature-included">✓ Data history & templates</li>
+                <li className="feature-included">✓ Priority support</li>
+                <li className="feature-included">✓ Team collaboration</li>
+              </ul>
+              <Link to="/upgrade" className="btn btn-primary btn-full">Start Yearly</Link>
             </div>
           </div>
           
