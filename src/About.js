@@ -9,7 +9,7 @@ function About() {
       </p>
       <p>
         <b>Questions, ideas, or feedback?</b> <br />
-        Email: <a href="mailto:amber@thesolutiondesk.ca">amber@thesolutiondesk.ca</a>
+        Email: <a href="mailto:info@thesolutiondesk.ca">info@thesolutiondesk.ca</a>
       </p>
       <Link to="/" style={{color:"var(--accent)"}}>← Back to tools</Link>
     </div>
