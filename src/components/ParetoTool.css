@@ -1,4 +1,4 @@
-/* Pareto Analysis Tool - Professional UI/UX Design */
+/* Pareto Analysis Tool - Wide Horizontal Layout */
 
 /* Root Layout - Full Height Management */
 .pareto-tool-page {
@@ -8,24 +8,24 @@
   background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
 }
 
-/* Hero Section - Balanced Spacing */
+/* Hero Section - Compact and Centered */
 .hero-section {
-  padding: 3rem 0 2rem 0;
+  padding: 2rem 0 1.5rem 0;
   text-align: center;
   background: linear-gradient(135deg, rgba(32, 201, 151, 0.03) 0%, transparent 50%);
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 .hero-title {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   line-height: 1.2;
   text-shadow: 0 2px 20px rgba(32, 201, 151, 0.3);
   letter-spacing: -0.02em;
@@ -37,11 +37,11 @@
   line-height: 1.6;
   margin: 0;
   font-weight: 400;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-/* Main Container - Optimized Width and Centering */
+/* Main Container - Wide Layout Matching Homepage */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -49,58 +49,68 @@
   width: 100%;
 }
 
-/* Tool Section - Flex Growth for Footer Positioning */
+/* Tool Section - Wide Horizontal Layout */
 .tool-section {
   flex: 1;
-  padding: 2rem 0 4rem 0;
-  display: flex;
-  align-items: flex-start;
+  padding: 1.5rem 0 3rem 0;
 }
 
-/* Tool Grid - Balanced Two-Column Layout */
-.tool-grid {
+/* Main Tool Layout - Wide Side-by-Side Grid */
+.tool-main-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1.2fr 0.8fr;
+  gap: 2rem;
   align-items: start;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Column Styling - Balanced Layout */
-.input-column,
-.output-column {
+/* Wide Layout Columns - No Cards, Direct Content */
+.input-section,
+.chart-section,
+.insights-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   padding: 0;
 }
 
-/* Section Headers - Improved Typography and Spacing */
-.section-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1.25rem;
-  gap: 0.5rem;
-}
-
-.section-header h2 {
-  font-size: 1.375rem;
+/* Section Titles - Strong Visual Hierarchy */
+.section-title {
+  font-size: 1.25rem;
   font-weight: 700;
   color: #FFFFFF;
-  margin: 0;
+  margin: 0 0 0.75rem 0;
   letter-spacing: -0.01em;
   line-height: 1.3;
+  border-bottom: 2px solid rgba(32, 201, 151, 0.2);
+  padding-bottom: 0.5rem;
 }
 
-.section-header p {
+.section-subtitle {
   color: #94A3B8;
   font-size: 0.875rem;
-  margin: 0;
+  margin: 0 0 1rem 0;
   font-weight: 400;
   line-height: 1.4;
+}
+
+/* Input Section - Primary Focus */
+.input-section {
+  min-height: 400px;
+}
+
+/* Chart Section - Primary Visual Focus */
+.chart-section {
+  min-height: 400px;
+}
+
+/* Insights Section - Supporting Content */
+.insights-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* Export Button in Header */
@@ -134,61 +144,59 @@
   margin-bottom: 0.5rem;
 }
 
-.card-header p {
-  color: #9CA3AF;
-  font-size: 0.875rem;
-  margin: 0;
-}
-
-/* Input Controls - Unified Button Styling */
 .input-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: 1.25rem;
+  gap: 1rem;
 }
 
 .sample-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: rgba(71, 85, 105, 0.5);
-  color: #E2E8F0;
-  border: 1px solid rgba(71, 85, 105, 0.8);
-  border-radius: 8px;
+  background: rgba(32, 201, 151, 0.1);
+  border: 1px solid rgba(32, 201, 151, 0.3);
+  color: #20C997;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
-  cursor: pointer;
   transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .sample-btn:hover {
-  background: rgba(32, 201, 151, 0.1);
-  color: #20C997;
-  border-color: rgba(32, 201, 151, 0.4);
+  background: rgba(32, 201, 151, 0.15);
+  border-color: rgba(32, 201, 151, 0.5);
   transform: translateY(-1px);
 }
 
-.btn-icon {
+.sample-btn .btn-icon {
   font-size: 1rem;
-  opacity: 0.9;
 }
 
-.input-controls {
-  margin-bottom: 1.5rem;
+/* Section Header with Export Button */
+.section-header-with-export {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
 .textarea-container {
   margin-bottom: 2rem;
 }
 
-/* Data Input - Primary Focus Element */
+/* Data Input - Primary Focus Element for Wide Layout */
 .data-input {
   width: 100%;
-  min-height: 320px;
+  min-height: 300px;
   padding: 1.25rem;
-  background: rgba(15, 23, 42, 0.8);
-  border: 2px solid rgba(71, 85, 105, 0.6);
-  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid rgba(32, 201, 151, 0.2);
+  border-radius: 8px;
   color: #F1F5F9;
   font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
   font-size: 0.875rem;
@@ -196,12 +204,13 @@
   resize: vertical;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .data-input:focus {
   outline: none;
   border-color: #20C997;
-  box-shadow: 0 0 0 4px rgba(32, 201, 151, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15);
   background: rgba(15, 23, 42, 0.95);
 }
 
@@ -524,31 +533,38 @@
   margin-bottom: 0;
 }
 
-/* Trust Section - Footer Positioning */
-.trust-section {
-  padding: 2rem 0;
+.insights-placeholder {
   text-align: center;
+  color: #64748B;
+  font-size: 0.875rem;
+  padding: 2rem 1rem;
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 8px;
+  border: 1px dashed rgba(71, 85, 105, 0.3);
+}
+
+/* Trust Signal - Footer Positioning */
+.trust-section {
+  background: rgba(15, 23, 42, 0.8);
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
+  padding: 2rem 0;
   margin-top: auto;
+  backdrop-filter: blur(10px);
 }
 
 .trust-signal {
-  background: rgba(32, 201, 151, 0.03);
-  border: 1px solid rgba(32, 201, 151, 0.1);
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
-  max-width: 500px;
+  text-align: center;
+  max-width: 800px;
   margin: 0 auto;
-  backdrop-filter: blur(5px);
 }
 
 .trust-signal p {
   color: #94A3B8;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   margin: 0;
   font-weight: 400;
+  letter-spacing: 0.025em;
 }
-
-/* Responsive Design - Comprehensive Mobile Support */
 
 /* Large Tablets and Small Desktops */
 @media (max-width: 1024px) {
@@ -603,8 +619,18 @@
   }
   
   .data-input {
-    min-height: 280px;
-    padding: 1rem;
+    min-height: 260px;
+  }
+  
+  .chart-container {
+    height: 300px;
+  }
+  
+  .insights-section .insight-card,
+  .insights-section .next-steps-card {
+    display: block;
+    width: 100%;
+    margin-right: 0;
   }
 }
 
@@ -618,75 +644,97 @@
     padding: 1.5rem 0 1rem 0;
   }
   
-  .hero-content {
-    padding: 0 1rem;
-  }
-  
   .hero-title {
     font-size: 1.75rem;
     margin-bottom: 0.75rem;
   }
   
   .hero-subtitle {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
   
   .tool-section {
     padding: 1rem 0 2rem 0;
   }
   
-  .tool-grid {
+  .tool-main-layout {
     gap: 1.5rem;
   }
   
-  .section-header {
-    margin-bottom: 1rem;
-  }
-  
-  .section-header h2 {
-    font-size: 1.125rem;
+  .section-title {
+    font-size: 1rem;
   }
   
   .data-input {
     min-height: 240px;
-    padding: 0.875rem;
+    padding: 1rem;
     font-size: 0.8125rem;
   }
   
   .chart-container {
+    height: 280px;
     padding: 1rem;
   }
   
-  .how-it-works,
-  .insight-section,
-  .next-steps-section {
+  .sample-btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  
+  .export-btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  
+  .how-it-works-compact {
     padding: 1rem;
   }
   
-  .placeholder-content {
-    padding: 2rem 1rem;
+  .how-it-works-compact h4 {
+    font-size: 0.9375rem;
   }
   
-  .placeholder-icon {
-    font-size: 2.5rem;
+  .how-it-works-compact ol {
+    font-size: 0.8125rem;
+    padding-left: 1.25rem;
+  }
+  
+  .insight-card,
+  .next-steps-card {
+    padding: 1rem;
+  }
+  
+  .insight-header h3,
+  .steps-header h3 {
+    font-size: 0.9375rem;
+  }
+  
+  .insight-card p,
+  .next-steps-card ul {
+    font-size: 0.8125rem;
   }
   
   .trust-section {
     padding: 1.5rem 0;
   }
+  
+  .trust-signal p {
+    font-size: 0.75rem;
+  }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 0 1.5rem 0;
+  }
+  
   .hero-title {
     font-size: 2.5rem;
   }
   
   .hero-subtitle {
     font-size: 1.125rem;
-  }
-  
-  .hero-section {
-    padding: 3rem 0;
   }
   
   .tool-section {
