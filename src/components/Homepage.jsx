@@ -73,7 +73,7 @@ export default function Homepage() {
                   Try Free Tool
                 </Link>
                 <Link to="/pareto" className="btn btn-secondary btn-large">
-                  Watch Demo
+                  Try It Now
                 </Link>
               </div>
               
@@ -88,7 +88,7 @@ export default function Homepage() {
                   <div className="demo-dots">
                     <span></span><span></span><span></span>
                   </div>
-                  <span className="demo-title">Live Demo - Watch It Work</span>
+                  <span className="demo-title">Try It Yourself - No Signup Needed</span>
                 </div>
                 <div className="demo-content">
                   <Link to="/pareto" className="demo-screenshot-link">
@@ -96,12 +96,12 @@ export default function Homepage() {
                       <div className="screenshot-overlay">
                         <div className="overlay-button">
                           <span className="button-icon">▶</span>
-                          <span className="button-text">Try Live Tool</span>
+                          <span className="button-text">Try It Now</span>
                         </div>
                       </div>
                       <div className="screenshot-caption">
-                        <div className="caption-title">Real Pareto Analysis Tool</div>
-                        <div className="caption-subtitle">Click to try with your own data</div>
+                        <div className="caption-title">Instant Free Tool</div>
+                        <div className="caption-subtitle">See your team's bottlenecks now</div>
                       </div>
                     </div>
                   </Link>
