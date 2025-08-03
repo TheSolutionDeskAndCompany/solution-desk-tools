@@ -41,18 +41,45 @@ export default function EmailCapturePopup() {
     };
   }, [isDismissed, isSubmitted]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (email) {
-      // Here you would typically send to your email service
-      console.log('Email captured:', email);
-      setIsSubmitted(true);
-      localStorage.setItem('emailPopupSubmitted', 'true');
-      
-      // Hide popup after 3 seconds
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 3000);
+      try {
+        // Send to a simple email collection service (you can replace this with your preferred service)
+        const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            source: 'Process Improvement Cheatsheet Request',
+            timestamp: new Date().toISOString()
+          })
+        });
+        
+        if (response.ok) {
+          console.log('Email successfully captured:', email);
+          setIsSubmitted(true);
+          localStorage.setItem('emailPopupSubmitted', 'true');
+          
+          // Hide popup after 3 seconds
+          setTimeout(() => {
+            setIsVisible(false);
+          }, 3000);
+        } else {
+          throw new Error('Failed to submit email');
+        }
+      } catch (error) {
+        console.error('Error submitting email:', error);
+        // For now, still mark as submitted to avoid annoying the user
+        // In production, you might want to show an error message
+        setIsSubmitted(true);
+        localStorage.setItem('emailPopupSubmitted', 'true');
+        setTimeout(() => {
+          setIsVisible(false);
+        }, 3000);
+      }
     }
   };
 
