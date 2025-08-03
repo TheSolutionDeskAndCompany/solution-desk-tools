@@ -101,9 +101,25 @@ function ParetoChartTool() {
         </header>
 
         {/* Main Content Area */}
-        <section className="flex-1 flex items-center justify-center py-8">
-          <div className="w-full max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12">
+        <section className="flex-1 py-8">
+          <div className="page-content">
+            <style>{`
+              .page-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 2rem 1rem;
+                min-height: 600px;
+              }
+              @media (max-width: 900px) {
+                .page-content {
+                  grid-template-columns: 1fr;
+                  gap: 2rem;
+                }
+              }
+            `}</style>
               
               {/* Input Section */}
               <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-slate-700/50">
