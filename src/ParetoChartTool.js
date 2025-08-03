@@ -71,9 +71,9 @@ function ParetoChartTool() {
       <section className="hero-section">
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">Slash Your Team's Process Bottlenecks in Minutes</h1>
+            <h1 className="hero-title">Pareto Analysis Tool</h1>
             <p className="hero-subtitle">
-              Paste your process data and see your top bottlenecks instantly. Focus on what matters most—no consultants needed.
+              Identify the vital few factors that drive 80% of your problems. Create professional Pareto charts to focus your improvement efforts where they matter most.
             </p>
           </div>
         </div>
