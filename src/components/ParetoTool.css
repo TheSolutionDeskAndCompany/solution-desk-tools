@@ -53,20 +53,33 @@
   align-items: start;
 }
 
-/* Left Column - Input */
-.input-column {
+/* Column Styling */
+.input-column,
+.output-column {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
-.input-card {
-  background: var(--card-background, #2A3441);
-  border: 1px solid var(--border-subtle, #3A4553);
-  border-radius: 12px;
-  padding: 3rem;
-  height: fit-content;
-  min-width: 600px;
-  width: 100%;
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #FFFFFF);
+  margin: 0;
+}
+
+.section-header p {
+  color: var(--text-muted, #9CA3AF);
+  font-size: 0.875rem;
+  margin: 0.5rem 0 0 0;
 }
 
 .card-header {
@@ -87,21 +100,31 @@
 }
 
 .input-controls {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .sample-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--card-background, #374151);
+  color: var(--text-secondary, #E5E7EB);
+  border: 1px solid var(--border-subtle, #4B5563);
+  border-radius: 8px;
   font-size: 0.875rem;
-  width: 100%;
-  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.btn-icon {
-  font-size: 1rem;
+.sample-btn:hover {
+  background: var(--border-subtle, #4B5563);
+  color: var(--primary-accent, #20C997);
+  border-color: var(--primary-accent, #20C997);
+}
+
+.input-controls {
+  margin-bottom: 1.5rem;
 }
 
 .textarea-container {
@@ -110,27 +133,27 @@
 
 .data-input {
   width: 100%;
-  background: #111827;
-  border: 2px solid #374151;
-  border-radius: 8px;
-  padding: 1rem;
-  color: #F9FAFB;
-  font-family: 'JetBrains Mono', monospace;
+  min-height: 300px;
+  padding: 1.5rem;
+  background: var(--card-background, #1F2937);
+  border: 1px solid var(--border-subtle, #374151);
+  border-radius: 12px;
+  color: var(--text-primary, #F9FAFB);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.875rem;
   line-height: 1.5;
   resize: vertical;
-  min-height: 280px;
-  transition: border-color 0.2s ease;
+  margin-bottom: 1.5rem;
 }
 
 .data-input:focus {
   outline: none;
-  border-color: #20C997;
+  border-color: var(--primary-accent, #20C997);
   box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.1);
 }
 
 .data-input::placeholder {
-  color: #6B7280;
+  color: var(--text-muted, #6B7280);
 }
 
 .error-message {

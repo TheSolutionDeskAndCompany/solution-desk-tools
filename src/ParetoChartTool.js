@@ -85,61 +85,57 @@ function ParetoChartTool() {
           <div className="tool-grid">
             {/* Left Column - Input */}
             <div className="input-column">
-              <div className="input-card">
-                <div className="card-header">
-                  <h2>Enter Your Process Data</h2>
-                  <p>Format: Category,Value (one per line)</p>
-                </div>
-                
-                <div className="input-controls">
-                  <button 
-                    onClick={fillExampleData}
-                    className="btn btn-secondary sample-btn"
-                  >
-                    <span className="btn-icon">📋</span>
-                    Try Sample Data
-                  </button>
-                </div>
-                
-                <div className="textarea-container">
-                  <textarea
-                    className="data-input"
-                    rows={12}
-                    placeholder="Customer Complaints,45\nShipping Delays,23\nProduct Defects,18\nBilling Issues,12\nReturn Processing,8"
-                    value={input}
-                    onChange={handleInputChange}
-                  />
-                  {error && <div className="error-message">{error}</div>}
-                </div>
-                
-                {/* How It Works - Compact */}
-                <div className="how-it-works-compact">
-                  <h4>How It Works:</h4>
-                  <ol>
-                    <li>Paste your categories and values above</li>
-                    <li>Your chart appears automatically on the right</li>
-                    <li>Focus on the tallest bars first for maximum impact</li>
-                  </ol>
-                </div>
+              <div className="section-header">
+                <h2>Enter Your Process Data</h2>
+                <p>Format: Category,Value (one per line)</p>
+              </div>
+              
+              <div className="input-controls">
+                <button 
+                  onClick={fillExampleData}
+                  className="btn btn-secondary sample-btn"
+                >
+                  <span className="btn-icon">📋</span>
+                  Try Sample Data
+                </button>
+              </div>
+              
+              <textarea
+                className="data-input"
+                rows={12}
+                placeholder="Customer Complaints,45\nShipping Delays,23\nProduct Defects,18\nBilling Issues,12\nReturn Processing,8"
+                value={input}
+                onChange={handleInputChange}
+              />
+              {error && <div className="error-message">{error}</div>}
+              
+              <div className="how-it-works">
+                <h3>How It Works:</h3>
+                <ol>
+                  <li>Paste your categories and values above</li>
+                  <li>Your chart appears automatically on the right</li>
+                  <li>Focus on the tallest bars first for maximum impact</li>
+                </ol>
               </div>
             </div>
 
-            {/* Right Column - Single Results Card */}
+            {/* Right Column - Results */}
             <div className="output-column">
+              <div className="section-header">
+                <h2>Your Pareto Analysis</h2>
+                {data.length > 0 && (
+                  <button 
+                    onClick={handleDownload}
+                    className="btn btn-primary export-btn"
+                  >
+                    <span className="btn-icon">📥</span>
+                    Export PNG
+                  </button>
+                )}
+              </div>
+              
               {data.length > 0 ? (
-                <div className="results-card">
-                  {/* Chart Section */}
-                  <div className="chart-header">
-                    <h2>Your Pareto Analysis</h2>
-                    <button 
-                      onClick={handleDownload}
-                      className="btn btn-primary export-btn"
-                    >
-                      <span className="btn-icon">📥</span>
-                      Export PNG
-                    </button>
-                  </div>
-                  
+                <>
                   <div className="chart-container" ref={chartRef}>
                     <ResponsiveContainer width="100%" height={400}>
                       <BarChart 
@@ -174,7 +170,6 @@ function ParetoChartTool() {
                     </ResponsiveContainer>
                   </div>
                   
-                  {/* Insights Section - Within Same Card */}
                   <div className="results-insights">
                     <div className="insight-section">
                       <div className="insight-header">
@@ -196,14 +191,12 @@ function ParetoChartTool() {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </>
               ) : (
-                <div className="placeholder-card">
-                  <div className="placeholder-content">
-                    <div className="placeholder-icon">📈</div>
-                    <h3>Your Chart Will Appear Here</h3>
-                    <p>Enter your data on the left to see your Pareto analysis. Try the sample data to get started quickly.</p>
-                  </div>
+                <div className="placeholder-content">
+                  <div className="placeholder-icon">📈</div>
+                  <h3>Your Chart Will Appear Here</h3>
+                  <p>Enter your data on the left to see your Pareto analysis. Try the sample data to get started quickly.</p>
                 </div>
               )}
             </div>
