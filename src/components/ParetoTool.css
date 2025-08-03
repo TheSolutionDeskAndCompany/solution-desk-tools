@@ -27,9 +27,15 @@
   margin: 0;
 }
 
-/* Container - Match Homepage */
-.container {
-  max-width: 1400px;
+/* Container - Override Homepage for Wider Layout */
+.tool-section .container {
+  max-width: 1400px !important;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-section .container {
+  max-width: 1400px !important;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -59,7 +65,8 @@
   border-radius: 12px;
   padding: 3rem;
   height: fit-content;
-  min-width: 500px;
+  min-width: 600px;
+  width: 100%;
 }
 
 .card-header {
@@ -174,7 +181,8 @@
   border-radius: 12px;
   padding: 3rem;
   height: fit-content;
-  min-width: 500px;
+  min-width: 600px;
+  width: 100%;
 }
 
 .chart-header {
