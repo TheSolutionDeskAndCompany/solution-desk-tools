@@ -19,6 +19,7 @@ import Terms from "./Terms";
 import Waitlist from "./Waitlist";
 import About from "./About";
 import "./App.css";
+import "./components/GlobalBrandOverrides.css";
 
 function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);

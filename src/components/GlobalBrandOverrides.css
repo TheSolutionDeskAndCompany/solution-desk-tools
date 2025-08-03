@@ -1,0 +1,186 @@
+/* Global Brand Consistency Overrides - Professional SaaS Theme */
+
+/* Force professional teal colors on ALL pages */
+* {
+  --cyber-neon: #20C997 !important;
+  --cyber-accent: #20C997 !important;
+  --primary-accent: #20C997 !important;
+}
+
+/* Auth/Signup Page Button Overrides */
+.auth-container button,
+.auth-form button,
+button[type="submit"],
+.btn,
+.button,
+input[type="submit"] {
+  background: #20C997 !important;
+  background-image: none !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.auth-container button:hover,
+.auth-form button:hover,
+button[type="submit"]:hover,
+.btn:hover,
+.button:hover,
+input[type="submit"]:hover {
+  background: #1BA085 !important;
+  background-image: none !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(32, 201, 151, 0.3) !important;
+}
+
+/* Secondary/Outline Buttons */
+.btn-secondary,
+.btn-outline,
+button.secondary {
+  background: transparent !important;
+  background-image: none !important;
+  border: 2px solid #20C997 !important;
+  color: #20C997 !important;
+}
+
+.btn-secondary:hover,
+.btn-outline:hover,
+button.secondary:hover {
+  background: #20C997 !important;
+  background-image: none !important;
+  color: white !important;
+}
+
+/* Remove all pink/magenta gradients globally */
+*[style*="ff34c6"],
+*[style*="magenta"],
+*[style*="pink"] {
+  background: #20C997 !important;
+  background-image: none !important;
+}
+
+/* Form Elements Global Override */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #20C997 !important;
+  box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.1) !important;
+  outline: none !important;
+}
+
+/* Links Global Override */
+a {
+  color: #20C997 !important;
+}
+
+a:hover {
+  color: #1BA085 !important;
+}
+
+/* Auth Page Specific Overrides */
+.auth-container,
+.login-container,
+.signup-container {
+  background: #1F2937 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 12px !important;
+  color: #F9FAFB !important;
+}
+
+.auth-container h1,
+.auth-container h2,
+.login-container h1,
+.login-container h2,
+.signup-container h1,
+.signup-container h2 {
+  color: #F9FAFB !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Google Auth Button Override */
+.google-auth-btn,
+button[class*="google"],
+*[class*="google-signin"] {
+  background: #374151 !important;
+  background-image: none !important;
+  border: 1px solid #4B5563 !important;
+  color: #F9FAFB !important;
+}
+
+.google-auth-btn:hover,
+button[class*="google"]:hover,
+*[class*="google-signin"]:hover {
+  background: #4B5563 !important;
+  background-image: none !important;
+  border-color: #20C997 !important;
+}
+
+/* Remove any remaining cyberpunk effects */
+*[class*="glow"],
+*[class*="neon"],
+*[class*="cyber"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Ensure consistent card styling */
+.card,
+.panel,
+.container,
+.auth-card {
+  background: #1F2937 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Professional typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #F9FAFB !important;
+  font-weight: 600 !important;
+}
+
+p, span, div {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #D1D5DB !important;
+}
+
+/* Navbar consistency */
+.navbar,
+.nav-bar,
+header {
+  background: #181F2A !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.navbar a,
+.nav-bar a,
+header a {
+  color: #D1D5DB !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.navbar a:hover,
+.nav-bar a:hover,
+header a:hover {
+  color: #20C997 !important;
+}
+
+/* Footer consistency */
+footer {
+  background: #181F2A !important;
+  border-top: 1px solid #374151 !important;
+  color: #9CA3AF !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .auth-container,
+  .login-container,
+  .signup-container {
+    margin: 1rem !important;
+    padding: 1.5rem !important;
+  }
+}

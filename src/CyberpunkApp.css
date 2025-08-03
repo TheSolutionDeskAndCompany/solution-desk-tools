@@ -1,17 +1,28 @@
-/* The Solution Desk - Cyberpunk Theme */
+/* The Solution Desk - Professional SaaS Theme */
 
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* Cyberpunk Color Palette */
+/* Professional SaaS Color Palette */
 :root {
-  --cyber-bg: #141b2b;
-  --cyber-panel: #232946;
-  --cyber-neon: #ff34c6;
-  --cyber-accent: #05d9e8;
-
-  --cyber-white: #e9ecef;
-  --cyber-grey: #43435c;
+  --primary-bg: #181F2A;
+  --secondary-bg: #222B36;
+  --card-bg: #1F2937;
+  --primary-accent: #20C997;
+  --secondary-accent: #2B6CB0;
+  
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --border-subtle: #374151;
+  
+  /* Legacy compatibility */
+  --cyber-bg: #181F2A;
+  --cyber-panel: #1F2937;
+  --cyber-neon: #20C997;
+  --cyber-accent: #20C997;
+  --cyber-white: #F9FAFB;
+  --cyber-grey: #374151;
 }
 
 /* Global Styles */
